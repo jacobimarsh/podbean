@@ -13,3 +13,10 @@ bcftools view --max-alleles 2 /scratch/pawsey0149/jmarsh1/podshatter/snp_calling
 java -Xmx100g -jar /scratch/pawsey0149/jmarsh1/podshatter/snp_calling/beagle.28Jun21.220.jar gt=/scratch/pawsey0149/jmarsh1/podshatter/snp_calling/${i}_SNP_id_filt_bial_all.vcf nthreads=15 out=/scratch/pawsey0149/jmarsh1/podshatter/snp_calling/impu_bial_${i}_SNP_id_filt_all
 bgzip -cd /scratch/pawsey0149/jmarsh1/podshatter/snp_calling/impu_bial_${i}_SNP_id_filt_all.vcf.gz > /scratch/pawsey0149/jmarsh1/podshatter/snp_calling/impu_bial_${i}_SNP_id_filt_all.vcfzz
 done | sed 's/aa/"/' | sed 's/zz/"/'
+grep '^#' 1_SNP_id_filt_bial_all.vcf > all_SNP_id_filt_bial.vcf
+grep '^#' impu_bial_1_SNP_id_filt_all.vcf > impu_bial_all_SNP_id_filt.vcf
+for i in {1..20}
+do
+grep -v '^#' ${i}_SNP_id_filt_bial_all.vcf >> all_SNP_id_filt_bial.vcf
+grep -v '^#' impu_bial_${i}_SNP_id_filt_all.vcf >> impu_bial_all_SNP_id_filt.vcf
+done
