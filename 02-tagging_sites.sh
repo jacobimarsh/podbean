@@ -1,20 +1,14 @@
 #16_30125287 is the SNP for pdh1 that is being investigated
 
-pheno_test.sh 16_30125287 16_SNP_id_filt_all.vcf late_shatter.txt
-#Site         Alleles  nInd  nIndPheno  AvPheno
-#16_30125287  REF_G    848   407        1.61671
-#16_30125287  ALT_A    370   141        2.8156
-#16_30125287  HET      31    15         2.53333
-#16_30125287  ./N      0
-#16_30125287  ./.      3
-
-pheno_test.sh 16_30125287 16_SNP_id_filt_all.vcf early_shatter565.txt
-#Site         Alleles  nInd  nIndPheno  AvPheno
-#16_30125287  REF_G    848   407        1.15553
-#16_30125287  ALT_A    370   141        1.7078
-#16_30125287  HET      31    15         1.58667
-#16_30125287  ./N      0
-#16_30125287  ./.      3
-
-#It's odd that both early and late phenotypes are elevated in the alternate allele population... 
-#Need to investigate how each phenotype was measured
+echo 16_30125287 > 16_30125287.tmp
+plink --vcf 16_SNP_id_filt_all.vcf --show-tags 16_30125287.tmp --list-all --tag-r2 0.9 --out 16_30125287 --allow-extra-chr
+plink --r2 dprime with-freqs --ld-snp-list 16_30125287.tags --vcf 16_SNP_id_filt_all.vcf --out 16_30125287_tagsdp --ld-window 100000000 --ld-window-kb 1300 --allow-extra-chr
+echo -e 'SNP\tMAF\tR2\tDP' > 16_30125287_tagsum.txt
+echo '"CHROM" "POS" "R2"' > 16_30125287_ldbs_gwastags.txt
+grep 16_30125287 16_30125287_tagsdp.ld | sed 's/ +/\t/g' | awk '{print $7,$8,$9,$10}' | sed 's/ /\t/g' | sort -r -n -k3 >> 16_30125287_tagsum.txt
+#gotta restrict to R2>0.7
+grep 16_30125287 16_30125287_tagsdp.ld | sed 's/ +/\t/g' | awk '$9>0.7 {print $5,$6,$9}' >> 16_30125287_ldbs_gwastags.txt
+#get first and last position
+tail -n +2 16_30125287_ldbs_gwastags.txt | sort -k2 | awk '{print $2}' | (head -n 1 && tail -n 1)
+#29215372
+#30408206
