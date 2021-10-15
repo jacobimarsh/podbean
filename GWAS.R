@@ -41,3 +41,5 @@ ilMVP <- MVP(
     out="imp_late"
 )
     
+#impu_late gives best result, highly significant for chr16 
+#16_30125287	16	30125287	G	A	0.401123216	0.037863702	1.88E-26
