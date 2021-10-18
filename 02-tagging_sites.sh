@@ -12,3 +12,5 @@ grep 16_30125287 16_30125287_tagsdp.ld | sed 's/ +/\t/g' | awk '$9>0.7 {print $5
 tail -n +2 16_30125287_ldbs_gwastags.txt | sort -k2 | awk '{print $2}' | (head -n 1 && tail -n 1)
 #29215372
 #30408206
+##from looking at all tags with GWAS-SNP there's regular decay from the site, but a secondary spike around 29218188
+##regular decay produces a region roughly 29900000:30400000
