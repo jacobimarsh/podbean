@@ -1,7 +1,0 @@
-#BLAST the 12kb pdh1 region in Wm82.a4.v1 against reference of other legumes
-
-conda create --name blast
-conda activate blast
-conda install -c bioconda blast
-
-cat species.txt | while read line; do makeblastdb -dbtype nucl -in ${line}.fna; done
