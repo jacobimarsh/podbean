@@ -35,5 +35,7 @@ done
 #note the BLAST appears to be inverted
 ## ^^ THIS IS IN: 48538016-48538567 ID=phavu.UI111.gnm1.ann1.PvUI111.03G250500;Note=Disease resistance-responsive (dirigent-like protein) family protein%3B IPR004265 (Plant disease resistance response protein)
 #NC_030637.1     83.333  558     86      4       1001    1556    25801312        25801864        7.27e-142       508
+## ^^ THIS IS IN: 25801043-25801905 ID=gene-LOC108340760;gene_biotype=protein_coding
+#note: scarecrow-like protein is present 2kb upstream
 #vigun.IT97K-499-35.gnm1.Vu03    83.363  559     86      4       1001    1557    43982045        43982598        2.25e-142       510
 #vigun.IT97K-499-35.gnm1.Vu03    85.319  470     69      0       1001    1470    2990467 2989998 3.80e-135       486
