@@ -18,6 +18,8 @@ done
 ##
 #Allhits
 #glyma.Wm82.gnm4.Gm16    100.000 2552    0       0       1       2552    30160342        30162893        0.0     4713
+#has scarecrow-like protein 5kb upstream
+#note its inverted
 #glyma.Wm82.gnm4.Gm02    88.842  475     38      9       792     1260    5243921 5244386 6.90e-160       569
 #glyma.Wm82.gnm4.Gm02    87.629  388     29      10      1810    2195    5244635 5245005 9.44e-119       433
 #glyma.Wm82.gnm4.Gm02    82.784  273     24      7       1512    1777    5244381 5244637 2.23e-55        222
