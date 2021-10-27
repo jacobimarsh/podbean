@@ -25,7 +25,8 @@ done
 #glyma.Wm82.gnm4.Gm10    78.667  150     30      2       7       156     31336591        31336444        3.91e-18        99.0
 #phalu.G27455.gnm1.Pl03  83.894  565     88      3       994     1557    40269058        40268496        3.91e-150       536
 ## ^^ THIS IS IN: 40268335-40269441 ID=phalu.G27455.gnm1.ann1.Pl03G0000340600;Note=Disease resistance-responsive (dirigent-like protein) family protein%3B IPR004265 (Plant disease resistance response protein)
-#note the BLAST appears to be inverted
+#note the BLAST appears to be inverted 40276363 
+#has scarecrow-like TF 7kb downstream
 #phalu.G27455.gnm1.Pl02  86.809  470     62      0       1001    1470    48608604        48609073        8.46e-147       525
 ## ^^ THIS IS IN: 48608604-48609149 ID=phalu.G27455.gnm1.ann1.Pl02G0000430800;Note=Disease resistance-responsive (dirigent-like protein) family protein%3B IPR004265 (Plant disease resistance response protein)
 ## WHICH IS 7kb DOWNSTREAM OF ANOTHER DIRIGENT LIKE PROTEIN!!
@@ -34,8 +35,13 @@ done
 #phavu.UI111.gnm1.Chr03  83.126  563     92      3       991     1552    48538576        48538016        2.41e-142       510
 #note the BLAST appears to be inverted
 ## ^^ THIS IS IN: 48538016-48538567 ID=phavu.UI111.gnm1.ann1.PvUI111.03G250500;Note=Disease resistance-responsive (dirigent-like protein) family protein%3B IPR004265 (Plant disease resistance response protein)
+#has scarecrow-like protein 5kb downstream
 #NC_030637.1     83.333  558     86      4       1001    1556    25801312        25801864        7.27e-142       508
 ## ^^ THIS IS IN: 25801043-25801905 ID=gene-LOC108340760;gene_biotype=protein_coding
-#note: scarecrow-like protein is present 2kb upstream
+#note: scarecrow-like protein is present 10kb upstream
 #vigun.IT97K-499-35.gnm1.Vu03    83.363  559     86      4       1001    1557    43982045        43982598        2.25e-142       510
+## ^^ THIS IS IN: 43981712-43982682 ID=vigun.IT97K-499-35.gnm1.ann2.Vigun03g268500;Note=Disease resistance-responsive (dirigent-like protein) family protein%3B IPR004265 (Plant disease resistance response protein)
+#has scarecrow-like protein 16.6kb upstream
 #vigun.IT97K-499-35.gnm1.Vu03    85.319  470     69      0       1001    1470    2990467 2989998 3.80e-135       486
+#note the BLAST appears to be inverted
+## ^^ THIS IS IN: 2989743-2990706 ID=vigun.IT97K-499-35.gnm1.ann2.Vigun03g039200;Note=Disease resistance-responsive (dirigent-like protein) family protein%3B IPR004265 (Plant disease resistance response protein)
