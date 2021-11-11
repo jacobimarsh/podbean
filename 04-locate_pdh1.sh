@@ -1,3 +1,31 @@
+#conda create --name blast
+conda activate blast
+#conda install -c bioconda blast
+
+cat species.txt | while read line
+do makeblastdb -dbtype nucl -in ${line}.fna
+blastn -db ${line}.fna -query 1kb_flank_glyma16_22580.fa -outfmt 6 -word_size 11 > ${line}_1kbflank_blast.txt
+done
+
+echo -e "shortID\tChromosome\theader\t%\tident\tlength\tmismatch\tgapopen\tqrystart\tqryend\tsubstart\tsubend\tEvalue\tbitscore\t100bp diff\t100bp in\tflank start\tflank end\tdirection" > all_1kbflank_blast_flanks.txt
+
+cat *_1kbflank_blast.txt | 
+  awk -vmaxval='1100' '{$13=maxval-$7;print $0, OFS = "\t"}' | 
+    awk 'FS="\t" {if ($10>$9) $14 = $9 + $13; else $14 = $9 - $13; print $0, OFS = "\t"}' | 
+      awk 'FS="\t" {if ($10>$9) $15 = $14 - 1600; else $15 = $14 + 1600; print $0, OFS = "\t"}' | 
+        awk 'FS="\t" {if ($10>$9) $16 = $14 + 2100; else $16 = $14 - 2100; print $0, OFS = "\t"}' |
+          awk 'FS="\t" {if ($10>$9) $17 = "norm"; else $17 = "inv"; print $0, OFS = "\t"}' >> all_1kbflank_blast_flanks.txt
+
+
+
+
+
+
+
+
+
+
+
 #BLAST the 12kb pdh1 region in Wm82.a4.v1 against reference of other legumes
 
 conda create --name blast
