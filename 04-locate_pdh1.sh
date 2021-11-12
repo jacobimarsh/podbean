@@ -7,7 +7,7 @@ conda activate blast
 
 cat species.txt | while read line
 do makeblastdb -dbtype nucl -in ${line}.fna
-blastn -db ${line}.fna -query 1kb_flank_glyma16_22580.fa -outfmt 6 -word_size 11 > ${line}_1kbflank_blast.txt
+blastn -db ${line}.fna -query 1kb_flank_glyma16_22580.fa -outfmt 6 -word_size 11 | grep 'e-' | grep -v 'e-0' > ${line}_1kbflank_blast.txt
 done
 
 echo -e "shortID\tChromosome\theader\t%\tident\tlength\tmismatch\tgapopen\tqrystart\tqryend\tsubstart\tsubend\tEvalue\tbitscore\t100bp diff\t100bp in\tflank start\tflank end\tdirection" > all_1kbflank_blast_flanks.txt
