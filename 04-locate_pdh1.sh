@@ -1,3 +1,6 @@
+##change all fastas to gespe.fna, all gffs to gespe.gff
+##add gespe prefix to all chromosome names where needed
+
 #conda create --name blast
 conda activate blast
 #conda install -c bioconda blast
