@@ -19,6 +19,18 @@ cat *_1kbflank_blast.txt |
         awk 'FS="\t" {if ($10>$9) $16 = $14 + 2100; else $16 = $14 - 2100; print $0, OFS = "\t"}' |
           awk 'FS="\t" {if ($10>$9) $17 = "norm"; else $17 = "inv"; print $0, OFS = "\t"}' >> all_1kbflank_blast_flanks.txt
 
+cat species.txt | while read line
+do
+cat all_1kbflank_blast_flanks.txt | 
+  grep ${line} | 
+    awk '{if ($1 !~ /^#/) print($2"\t"$14-1"\t"$15)}' | 
+      tail -n +2 | awk '{if ($2 > $3) print $1"\t"$3"\t"$2; else print}' | 
+        bedtools intersect -nonamecheck -b stdin -a ${line}.gff* -wao | 
+          grep -v '\-1' | 
+            grep -P '\tgene\t' > ${line}_BLAST_hits.gff
+done
+cat *_BLAST_hits.gff > all_BLAST_hits.gff
+cat all_1kbflank_blast_flanks.txt all_BLAST_hits.gff > BLASTHITS_excel_xport.txt
 
 
 
