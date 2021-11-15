@@ -30,8 +30,22 @@ cat all_1kbflank_blast_flanks.txt |
             grep -P '\tgene\t' > ${line}_BLAST_hits.gff
 done
 cat *_BLAST_hits.gff > all_BLAST_hits.gff
-cat all_1kbflank_blast_flanks.txt all_BLAST_hits.gff > BLASTHITS_excel_xport.txt
 
+##glyma has scaffolds
+grep glyma all_1kbflank_blast_flanks.txt | grep -v scaffold | awk '{if ($1 !~ /^#/) print($2"\t"$14-1"\t"$15)}' |        
+awk '{if ($2 > $3) print $1"\t"$3"\t"$2; else print}' | 
+bedtools intersect -nonamecheck -b stdin -a glyma.gff3 -wao |            
+grep -v '\-1' |              
+grep -P '\tgene\t' > glyma_BLAST_hits.gff
+
+##cicar doesn't have gene features
+grep cicar all_1kbflank_blast_flanks.txt | awk '{if ($1 !~ /^#/) print($2"\t"$14-1"\t"$15)}' |        
+tail -n +2 | awk '{if ($2 > $3) print $1"\t"$3"\t"$2; else print}' | 
+bedtools intersect -nonamecheck -b stdin -a cicar.gff -wao |            
+grep -v '\-1' |              
+grep -P '\tgene\t' > ${line}_BLAST_hits.gff
+
+cat all_1kbflank_blast_flanks.txt all_BLAST_hits.gff > BLASTHITS_excel_xport.txt
 
 
 
