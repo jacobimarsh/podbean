@@ -47,6 +47,8 @@ grep -P '\tgene\t' > ${line}_BLAST_hits.gff
 
 cat all_1kbflank_blast_flanks.txt all_BLAST_hits.gff > BLASTHITS_excel_xport.txt
 
+##still need to manually add species id to prefix and add annotation as a hit suffix
+
 
 
 
