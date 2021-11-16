@@ -39,12 +39,12 @@ grep -v '\-1' |
 grep -P '\tgene\t' > glyma_BLAST_hits.gff
 
 ##cicar doesn't have gene features
-grep cicar all_1kbflank_blast_flanks.txt | awk '{if ($1 !~ /^#/) print($2"\t"$14-1"\t"$15)}' |        
-tail -n +2 | awk '{if ($2 > $3) print $1"\t"$3"\t"$2; else print}' | 
+grep cicar all_1kbflank_blast_flanks.txt | awk '{if ($1 !~ /^#/) print($2"\t"$14-1"\t"$15)}'| 
+awk '{if ($2 > $3) print $1"\t"$3"\t"$2; else print}' | 
 bedtools intersect -nonamecheck -b stdin -a cicar.gff -wao |            
-grep -v '\-1' |              
-grep -P '\tgene\t' > ${line}_BLAST_hits.gff
+grep -v '\-1' > cicar_BLAST_hits.gff
 
+cat *_BLAST_hits.gff > all_BLAST_hits.gff
 cat all_1kbflank_blast_flanks.txt all_BLAST_hits.gff > BLASTHITS_excel_xport.txt
 
 ##still need to manually add species id to prefix and add annotation as a hit suffix
