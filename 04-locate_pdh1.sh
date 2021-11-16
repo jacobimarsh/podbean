@@ -49,6 +49,8 @@ cat all_1kbflank_blast_flanks.txt all_BLAST_hits.gff > BLASTHITS_excel_xport.txt
 
 ##still need to manually add species id to prefix and add annotation as a hit suffix
 
+##then manually select the ones which seem like pdh1 based on matching regions within CDS of glyma.pdh1
+
 
 
 
