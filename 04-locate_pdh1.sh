@@ -48,6 +48,17 @@ grep -v '\-1' > cicar_BLAST_hits.gff
 cat *_BLAST_hits.gff > all_BLAST_hits.gff
 cat all_1kbflank_blast_flanks.txt all_BLAST_hits.gff > BLASTHITS_excel_xport.txt
 
+##vitvi has some missing gene features
+grep vitvi all_1kbflank_blast_flanks.txt | awk '{if ($1 !~ /^#/) print($2"\t"$14-1"\t"$15)}'| 
+awk '{if ($2 > $3) print $1"\t"$3"\t"$2; else print}' | 
+bedtools intersect -nonamecheck -b stdin -a vitvi.gff3 -wao |            
+grep -v '\-1' | 
+grep -P '\tmRNA\t' > vitvi_BLAST_hits.gff
+
+cat *_BLAST_hits.gff > all_BLAST_hits.gff
+cat all_1kbflank_blast_flanks.txt all_BLAST_hits.gff > BLASTHITS_excel_xport.txt
+
+
 ##still need to manually add species id to prefix and add annotation as a hit suffix
 
 ##then manually select the ones which seem like pdh1 based on matching regions within CDS of glyma.pdh1
