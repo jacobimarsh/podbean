@@ -4,6 +4,7 @@
 #conda create --name blast
 conda activate blast
 #conda install -c bioconda blast
+module load bedtools
 
 cat species.txt | while read line
 do makeblastdb -dbtype nucl -in ${line}.fna
