@@ -10,10 +10,11 @@ cat a.txt | bioawk -c fastx ' $name ~ /.....:/ { print ">" $name "\n" $seq }' > 
 
 
 grep '>' muscle_flanks.fa | sed 's/>//' > name_changing_muscleflanks.tmp
-awk '{print $1":"$22":"$17":"$18":"$2":"$7"-"$8}' musclesites_info.mtx | paste name_changing_muscleflanks.tmp - > naming_MFs.tmp
-#give each a uniq id
+##need a way to match lines from each before doing the next step..
+awk '{print $1":"$22":"$17":"$18":"$2":"$7"-"$8":"$12}' musclesites_info.mtx | paste name_changing_muscleflanks.tmp - > naming_MFs.tmp
 seqkit replace -p "(.+)" -r '{kv}' -k naming_MFs.tmp muscle_flanks.fa >> muscle_flanks_renamed.fa
 grep AUGUSTUS naming_MFs.tmp > naming_AUG_MFs.tmp
 seqkit replace -p "(.+)" -r '{kv}' -k naming_AUG_MFs.tmp muscle_flanks.fa >> AUG_MFaa.tmp
 cat AUG_MFaa.tmp | bioawk -c fastx ' $name ~ /.....:/ { print ">" $name "\n" $seq }' > muscle_flanks_AUG_renamed.fa
+
 
