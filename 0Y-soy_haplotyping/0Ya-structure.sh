@@ -21,3 +21,7 @@ python2 /group/pawsey0149/jmarsh1/packages/fastStructure/structure.py -K 12 --pr
 python2 /group/pawsey0149/jmarsh1/packages/fastStructure/structure.py -K 13 --prior=simple --input=/scratch/pawsey0149/jmarsh1/podshatter/glyma/haploupe/impu_bial_16_SNP_id_filt_all.vcf --output=/scratch/pawsey0149/jmarsh1/podshatter/glyma/haploupe/test/testoutput_simple
 python2 /group/pawsey0149/jmarsh1/packages/fastStructure/structure.py -K 14 --prior=simple --input=/scratch/pawsey0149/jmarsh1/podshatter/glyma/haploupe/impu_bial_16_SNP_id_filt_all.vcf --output=/scratch/pawsey0149/jmarsh1/podshatter/glyma/haploupe/test/testoutput_simple
 python2 /group/pawsey0149/jmarsh1/packages/fastStructure/structure.py -K 15 --prior=simple --input=/scratch/pawsey0149/jmarsh1/podshatter/glyma/haploupe/impu_bial_16_SNP_id_filt_all.vcf --output=/scratch/pawsey0149/jmarsh1/podshatter/glyma/haploupe/test/testoutput_simple
+
+for i in {1..15}
+do python2 /group/pawsey0149/jmarsh1/packages/fastStructure/distructnew.py -K ${i} --input=testoutput_simple --output=test${i}_distruct.svg 
+done
