@@ -1,1 +1,2 @@
-
+conda create --name plotsr numpy=1.21.2 pandas=1.2.4 matplotlib=3.3.4 setuptools
+conda install -c bioconda plotsr
