@@ -2,6 +2,8 @@ conda activate blast
 conda install -c bioconda seqkit
 conda install -c bioconda bioawk
 
+cd /scratch/pawsey0149/jmarsh1/podshatter/muscle_flanks
+
 awk '{print $30}' musclesites_info.mtx > namechanging_AUGUSTUS.temp
 awk '{print $1":"$22":"$17":"$18":"$24"-"$25":"$19":"$20"-"$21}' musclesites_info.mtx | paste namechanging_AUGUSTUS.temp - > naming_AUG.tmp
 sed 's/.t1//' soybean_prob.aa > AUG_pre.aa
