@@ -25,3 +25,14 @@ python2 /group/pawsey0149/jmarsh1/packages/fastStructure/structure.py -K 15 --pr
 for i in {1..15}
 do python2 /group/pawsey0149/jmarsh1/packages/fastStructure/distructnew.py -K ${i} --input=testoutput_simple --output=test${i}_distruct.svg 
 done
+
+#REFORMAT FOR K=10
+
+grep '#CHROM' ../impu_bial_16_SNP_id_filt_all.vcf >> temppopfile.txt
+sed -i 's/^.*FORMAT\t//' temppopfile.txt
+sed -i 's/\t/\n/g' temppopfile.txt
+echo -e '\tp1\tp2\tp3\tp4\tp5\tp6\tp7\tp8\tp9\tp10' >> impu_bial_16_SNP_id_filt_all.vcf.10.meanQ_HMformatted.txt
+paste temppopfile.txt testoutput_simple.10.meanQ >> temp_impu_bial_16_SNP_id_filt_all.vcf.10.meanQ_HMformatted.txt
+cat temp_impu_bial_16_SNP_id_filt_all.vcf.10.meanQ_HMformatted.txt >> impu_bial_16_SNP_id_filt_all.vcf.10.meanQ_HMformatted.txt
+rm a
+rm temppopfile.txt
