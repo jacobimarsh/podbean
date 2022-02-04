@@ -7,4 +7,5 @@ tassel5 -Xmx20G -vcf nohet_prefin_impu_bial_16_SNP_id_filt_all.vcf -export nohet
 sed -i 's/#//g' nohet_prefin_impu_bial_16_SNP_id_filt_all.hmp.txt
 sed -i "s/^/Gm/" nohet_prefin_impu_bial_16_SNP_id_filt_all.hmp.txt
 sed -i "s/Gmrs/rs/" nohet_prefin_impu_bial_16_SNP_id_filt_all.hmp.txt
+#used nohet prefin because it cut too many hets ^^
 grep -v $'\tAC\t\|\tAG\t\|\tAT\t\|\tCA\t\|\tCG\t\|\tCT\t\|\tGA\t\|\tGC\t\|\tGT\t\|\tTA\t\|\tTC\t\|\tTG\t\|\tA\t20\|\tC\t20\|\tG\t20\|\tT\t20' nohet_prefin_impu_bial_16_SNP_id_filt_all.hmp.txt >> nohet_fin_impu_bial_16_SNP_id_filt_all.hmp.txt
