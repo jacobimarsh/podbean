@@ -14,6 +14,7 @@ while test $# -gt 0; do
       echo "-n, --name=NAME       specify name of gene to build script for"
       echo "-g, --newgene=NEWGENE      add gene information to my_gene_db.txt with fields: chr, start, end"
       echo "-o, --output-dir=DIR      specify a directory to store output in"
+      echo "e.g. runHM.sh "
       exit 0
       ;;
      -v)
@@ -131,11 +132,11 @@ library(HaplotypeMiner)
 library(ggplot2)
 
 paramsHM${NAME} <- haplo_params(
-   input_file = '../input/nohet_b51_173kb_only.hmp.txt',
-   gene_db_file = '../input/my_gene_db.txt',
-   chr_db_file = '../input/chr20_size.txt',
-   structure_file = '../input/fin_b51_protein_Gm20.SNPs.id.biallic_maf_0.01_geno_0.1.vcf.4.meanQ_HMformatted.txt',
-   kinship_file = '../input/fin_b51_protein_Gm20.SNPs.id.biallic_maf_0.01_geno_0.1.vcf_kinship_HMformatted.txt',
+   input_file = '/scratch/pawsey0149/jmarsh1/podshatter/glyma/haploupe/input/nohet_fin_impu_bial_16_SNP_id_filt_all.hmp.txt',
+   gene_db_file = '/scratch/pawsey0149/jmarsh1/podshatter/glyma/haploupe/input/my_gene_db.txt',
+   chr_db_file = '/scratch/pawsey0149/jmarsh1/podshatter/glyma/haploupe/input/chr16_size.txt',
+   structure_file = '/scratch/pawsey0149/jmarsh1/podshatter/glyma/haploupe/input/impu_bial_16_SNP_id_filt_all.vcf.10.meanQ_HMformatted.txt',
+   kinship_file = '/scratch/pawsey0149/jmarsh1/podshatter/glyma/haploupe/input/nohet_fin_impu_bial_16_SNP_id_filt_all_kinship_HMformatted.txt',
    gene_name = '${NAME}',
    R2_measure = 'r2vs',
    cluster_R2 = 'r2',
@@ -191,6 +192,6 @@ ld_plot(snp_data = HM${NAME}_haplotypes\$Clustered_markers,
 distance_plot(snp_data = HM${NAME}_haplotypes\$Filtered_markers,
               center_pos = HM${NAME}_haplotypes\$Parameters\$Gene_center,
               r2_threshold3 = HM${NAME}_haplotypes\$Parameters\$Marker_independence_threshold)" > HM${NAME}_CT${CT}_MIT${MIT}.r
-scp template.slm HM${NAME}_CT${CT}_MIT${MIT}.slm
+scp /scratch/pawsey0149/jmarsh1/podshatter/glyma/haploupe/input/template.slm HM${NAME}_CT${CT}_MIT${MIT}.slm
 sed -i "s/genename/HM${NAME}_CT${CT}_MIT${MIT}/g" HM${NAME}_CT${CT}_MIT${MIT}.slm
 sbatch HM${NAME}_CT${CT}_MIT${MIT}.slm
