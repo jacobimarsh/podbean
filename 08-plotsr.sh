@@ -1,5 +1,5 @@
 #conda create --name plotsr
-#conda activate plotsr
+conda activate plotsr
 #conda install -c bioconda plotsr
 #conda install -c bioconda 'minimap2>=2.7'
 #conda install python=3.8
