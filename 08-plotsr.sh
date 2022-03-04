@@ -1,17 +1,16 @@
-conda create --name plotsr
-conda activate plotsr
-conda install -c bioconda plotsr
-conda install -c bioconda 'minimap2>=2.7'
-#conda install cython numpy scipy 
-conda install python=3.8
-conda install biopython
-conda install psutil
-conda install -c conda-forge python-igraph
-git clone https://github.com/schneebergerlab/syri.git
-cd syri
-unset PYTHONPATH
-python setup.py install
-chmod +x syri/bin/syri
+#conda create --name plotsr
+#conda activate plotsr
+#conda install -c bioconda plotsr
+#conda install -c bioconda 'minimap2>=2.7'
+#conda install python=3.8
+#conda install biopython
+#conda install psutil
+#conda install -c conda-forge python-igraph
+#git clone https://github.com/schneebergerlab/syri.git
+#cd syri
+#unset PYTHONPATH
+#python setup.py install
+#chmod +x syri/bin/syri
 
 ###RECODED TEST
 scp glyma1.fa TAIR10.filtered.fa
