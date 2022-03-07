@@ -12,41 +12,15 @@ conda activate plotsr
 #python setup.py install
 #chmod +x syri/bin/syri
 
-####RECODED TEST
-#scp glyma1.fa TAIR10.filtered.fa
-#scp glyso2.fa ler.filtered.fa
-#minimap2 -ax asm5 -t 4 --eqx TAIR10.filtered.fa ler.filtered.fa | samtools sort -O BAM - > col_ler.bam
-#samtools index col_ler.bam
-#syri/syri/bin/syri  -c col_ler.bam -r TAIR10.filtered.fa -q ler.filtered.fa -F B --prefix col_ler &
-###in genomes.txt
-###file	name	tags
-##TAIR10.filetered.fa	col-0	lw:1.5
-##ler.filtered.fa	ler	lw:1.5
-#plotsr --sr col_lersyri.out --genomes genomes.txt -o out.png
-####
+#test
+#conda activate plotsr
+#minimap2 -ax asm5 -t 4 --eqx glyma1.fa glyso2.fa | samtools sort -O BAM - > glyma1_glyso2.bam
+#samtools index glyma1_glyso2.bam
+#syri/syri/bin/syri  -c glyma1_glyso2.bam -r glyma1.fa -q glyso2.fa -F B --prefix glyma1_glyso2 &
+#echo -e "#file\tname\ttags\nglyma1.fa\tglyma1\tlw:1.5\nglyso2.fa\tglyso2\tlw:1.5" > glyma1_glyso2_genomes.txt
+#plotsr --sr glyma1_glyso2syri.out --genomes glyma1_glyso2_genomes.txt -o glyma1_glyso2.png
 
-conda activate plotsr
-minimap2 -ax asm5 -t 4 --eqx glyma1.fa glyso2.fa | samtools sort -O BAM - > glyma1_glyso2.bam
-samtools index glyma1_glyso2.bam
-syri/syri/bin/syri  -c glyma1_glyso2.bam -r glyma1.fa -q glyso2.fa -F B --prefix glyma1_glyso2 &
-echo -e "#file\tname\ttags\nglyma1.fa\tglyma1\tlw:1.5\nglyso2.fa\tglyso2\tlw:1.5" > glyma1_glyso2_genomes.txt
-plotsr --sr glyma1_glyso2syri.out --genomes glyma1_glyso2_genomes.txt -o glyma1_glyso2.png
-
-conda activate plotsr
-minimap2 -ax asm5 -t 4 --eqx glyma1.fa glyso2.fa | samtools sort -O BAM - > glyma1_glyso2.bam
-samtools index glyma1_glyso2.bam
-syri/syri/bin/syri  -c glyma1_glyso2.bam -r glyma1.fa -q glyso2.fa -F B --prefix glyma1_glyso2 &
-echo -e "#file\tname\ttags\nglyma1.fa\tglyma1\tlw:1.5\nglyso2.fa\tglyso2\tlw:1.5" > glyma1_glyso2_genomes.txt
-plotsr --sr glyma1_glyso2syri.out --genomes glyma1_glyso2_genomes.txt -o glyma1_glyso2.png
-
-minimap2 -ax asm5 -t 4 -eqx glyma1.fa glyso2.fa | samtools sort -O BAM - > glyma1_glyso2.bam
-samtools index glyma1_glyso2.bam
-minimap2 -ax asm5 -t 4 -eqx glyso2.fa glyma1.fa | samtools sort -O BAM - > glyso2_glyma1.bam
-samtools index glyso2_glyma1.bam
-conda install -c bioconda pysam
-
-
-### multiplex
+### multiplex from here
 conda activate plotsr
 module load samtools
 minimap2 -ax asm5 -t 4 --eqx glyma1.fa glyso2.fa | samtools sort -O BAM - > glyma1_glyso2.bam
@@ -157,77 +131,48 @@ syri/syri/bin/syri -c glyma33_lotja34.bam -r glyma33.fa -q lotja34.fa -F B --pre
 syri/syri/bin/syri -c lotja34_lotja35.bam -r lotja34.fa -q lotja35.fa -F B --prefix lotja34_lotja35 &
 syri/syri/bin/syri -c lotja35_medtr36.bam -r lotja35.fa -q medtr36.fa -F B --prefix lotja35_medtr36 &
 
-glyma1_glyso2.bam
-glyso2_glyso3.bam
-glyso3_glyma4.bam
-glyma4_cajca5.bam
-cajca5_phalu6.bam
-phalu6_phavu7.bam
-phavu7_vigan8.bam
-vigan8_lupal9.bam
-lupal9_lupal10.bam
-lupal10_medtr11.bam
-medtr11_lotja12.bam
-lotja12_pissa13.bam
-pissa13_vitvi14.bam
-vitvi14_vitvi15.bam
-vitvi15_phalu16.bam
-phalu16_phavu17.bam
-phavu17_vigra18.bam
-vigra18_cicar19.bam
-cicar19_pissa20.bam
-pissa20_lupal21.bam
-lupal21_vigun22.bam
-vigun22_cajca23.bam
-cajca23_vigra24.bam
-vigra24_vigun25.bam
-vigun25_phavu26.bam
-phavu26_phalu27.bam
-phalu27_vigan28.bam
-vigan28_glyma29.bam
-glyma29_glyso30.bam
-glyso30_vigun31.bam
-vigun31_vigan32.bam
-vigan32_glyma33.bam
-glyma33_lotja34.bam
-lotja34_lotja35.bam
-lotja35_medtr36.bam
+#Following lines successfully mapped
+vitvi14_vitvi15syri.out
+vigun31_vigan32syri.out
+vigra24_vigun25syri.out
+phavu7_vigan8syri.out
+phavu26_phalu27syri.out
+phavu17_vigra18syri.out
+phalu6_phavu7syri.out
+phalu27_vigan28syri.out
+phalu16_phavu17syri.out
+lupal9_lupal10syri.out
+glyso3_glyma4syri.out
+glyso2_glyso3syri.out
+glyma29_glyso30syri.out
+glyma1_glyso2syri.out
 
+echo -e "#file\tname\ttags\nvitvi14.fa\tvitvi14\tlw:1.5\nvitvi15.fa\tvitvi15\tlw:1.5" > vitvi14_vitvi15_genomes.txt
+echo -e "#file\tname\ttags\nvigun31.fa\tvigun31\tlw:1.5\nvigun32.fa\tvigun32\tlw:1.5" > vigun31_vigun32_genomes.txt
+echo -e "#file\tname\ttags\nvigun24.fa\tvigun24\tlw:1.5\nvigun25.fa\tvigun25\tlw:1.5" > vigun24_vigun25_genomes.txt
+echo -e "#file\tname\ttags\nphavu7.fa\tphavu7\tlw:1.5\nvigan8.fa\tvigan8\tlw:1.5" > phavu7_vigan8_genomes.txt
+echo -e "#file\tname\ttags\nphavu26.fa\tphavu26\tlw:1.5\nphalu27.fa\tphalu27\tlw:1.5" > phavu26_phalu27_genomes.txt
+echo -e "#file\tname\ttags\nphavu17.fa\tphavu17\tlw:1.5\nvigra18.fa\tvigra18\tlw:1.5" > phavu17_vigra18_genomes.txt
+echo -e "#file\tname\ttags\nphalu6.fa\tphalu6\tlw:1.5\nphavu7.fa\tphavu7\tlw:1.5" > phalu6_phavu7_genomes.txt
+echo -e "#file\tname\ttags\nphalu27.fa\tphalu27\tlw:1.5\nvigan28.fa\tvigan28\tlw:1.5" > phalu27_vigan28_genomes.txt
+echo -e "#file\tname\ttags\nphalu16.fa\tphalu16\tlw:1.5\nphavu17.fa\tphavu17\tlw:1.5" > phalu16_phavu17_genomes.txt
+echo -e "#file\tname\ttags\nlupal9.fa\tlupal9\tlw:1.5\nlupal10.fa\tlupal10\tlw:1.5" > lupal9_lupal10_genomes.txt
+echo -e "#file\tname\ttags\nglyso3.fa\tglyso3\tlw:1.5\nglyma4.fa\tglyma4\tlw:1.5" > glyso3_glyma4_genomes.txt
+echo -e "#file\tname\ttags\nglyso2.fa\tglyso2\tlw:1.5\nglyso3.fa\tglyso3\tlw:1.5" > glyso2_glyso3_genomes.txt
+echo -e "#file\tname\ttags\nglyma29.fa\tglyma29\tlw:1.5\nglyso30.fa\tglyso30\tlw:1.5" > glyma29_glyso30_genomes.txt
+echo -e "#file\tname\ttags\nglyma1.fa\tglyma1\tlw:1.5\nglyso2.fa\tglyso2\tlw:1.5" > glyma1_glyso2_genomes.txt
 
-
-
-
-glyma4
-cajca5
-phalu6
-phavu7
-vigan8
-lupal9
-lupal10
-medtr11
-lotja12
-pissa13
-vitvi14
-vitvi15
-phalu16
-phavu17
-vigra18
-cicar19
-pissa20
-lupal21
-vigun22
-cajca23
-vigra24
-vigun25
-phavu26
-phalu27
-vigan28
-glyma29
-glyso30
-vigun31
-vigan32
-glyma33
-lotja34
-lotja35
-
-
+plotsr --sr vitvi14_vitvi15syri.out --genomes vitvi14_vitvi15_genomes.txt -o vitvi14_vitvi15.png
+plotsr --sr vigun31_vigan32syri.out --genomes vigun31_vigun32_genomes.txt -o vigun31_vigan32.png
+plotsr --sr vigra24_vigun25syri.out --genomes vigun24_vigun25_genomes.txt -o vigra24_vigun25.png
+plotsr --sr phavu7_vigan8syri.out --genomes phavu7_vigan8_genomes.txt -o phavu7_vigan8.png
+plotsr --sr phavu26_phalu27syri.out --genomes phavu26_phalu27_genomes.txt -o phavu26_phalu27.png
+plotsr --sr phavu17_vigra18syri.out --genomes phavu17_vigra18_genomes.txt -o phavu17_vigra18.png
+plotsr --sr phalu6_phavu7syri.out --genomes phalu6_phavu7_genomes.txt -o phalu6_phavu7.png
+plotsr --sr phalu27_vigan28syri.out --genomes phalu27_vigan28_genomes.txt -o phalu27_vigan28.png
+plotsr --sr phalu16_phavu17syri.out --genomes phalu16_phavu17_genomes.txt -o phalu16_phavu17.png
+plotsr --sr lupal9_lupal10syri.out --genomes lupal9_lupal10_genomes.txt -o lupal9_lupal10.png
+plotsr --sr glyso3_glyma4syri.out --genomes glyso3_glyma4_genomes.txt -o glyso3_glyma4.png
+plotsr --sr glyso2_glyso3syri.out --genomes glyso2_glyso3_genomes.txt -o glyso2_glyso3.png
+plotsr --sr glyma29_glyso30syri.out --genomes glyma29_glyso30_genomes.txt -o glyma29_glyso30.png
+plotsr --sr glyma1_glyso2syri.out --genomes glyma1_glyso2_genomes.txt -o glyma1_glyso2.png
