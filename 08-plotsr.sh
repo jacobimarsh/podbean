@@ -148,8 +148,8 @@ glyma29_glyso30syri.out
 glyma1_glyso2syri.out
 
 echo -e "#file\tname\ttags\nvitvi14.fa\tvitvi14\tlw:1.5\nvitvi15.fa\tvitvi15\tlw:1.5" > vitvi14_vitvi15_genomes.txt
-echo -e "#file\tname\ttags\nvigun31.fa\tvigun31\tlw:1.5\nvigun32.fa\tvigun32\tlw:1.5" > vigun31_vigun32_genomes.txt
-echo -e "#file\tname\ttags\nvigun24.fa\tvigun24\tlw:1.5\nvigun25.fa\tvigun25\tlw:1.5" > vigun24_vigun25_genomes.txt
+echo -e "#file\tname\ttags\nvigun31.fa\tvigun31\tlw:1.5\nvigan32.fa\tvigan32\tlw:1.5" > vigun31_vigan32_genomes.txt
+echo -e "#file\tname\ttags\nvigra24.fa\tvigra24\tlw:1.5\nvigun25.fa\tvigun25\tlw:1.5" > vigra24_vigun25_genomes.txt
 echo -e "#file\tname\ttags\nphavu7.fa\tphavu7\tlw:1.5\nvigan8.fa\tvigan8\tlw:1.5" > phavu7_vigan8_genomes.txt
 echo -e "#file\tname\ttags\nphavu26.fa\tphavu26\tlw:1.5\nphalu27.fa\tphalu27\tlw:1.5" > phavu26_phalu27_genomes.txt
 echo -e "#file\tname\ttags\nphavu17.fa\tphavu17\tlw:1.5\nvigra18.fa\tvigra18\tlw:1.5" > phavu17_vigra18_genomes.txt
@@ -163,8 +163,8 @@ echo -e "#file\tname\ttags\nglyma29.fa\tglyma29\tlw:1.5\nglyso30.fa\tglyso30\tlw
 echo -e "#file\tname\ttags\nglyma1.fa\tglyma1\tlw:1.5\nglyso2.fa\tglyso2\tlw:1.5" > glyma1_glyso2_genomes.txt
 
 plotsr --sr vitvi14_vitvi15syri.out --genomes vitvi14_vitvi15_genomes.txt -o vitvi14_vitvi15.png
-plotsr --sr vigun31_vigan32syri.out --genomes vigun31_vigun32_genomes.txt -o vigun31_vigan32.png
-plotsr --sr vigra24_vigun25syri.out --genomes vigun24_vigun25_genomes.txt -o vigra24_vigun25.png
+plotsr --sr vigun31_vigan32syri.out --genomes vigun31_vigan32_genomes.txt -o vigun31_vigan32.png
+plotsr --sr vigra24_vigun25syri.out --genomes vigra24_vigun25_genomes.txt -o vigra24_vigun25.png
 plotsr --sr phavu7_vigan8syri.out --genomes phavu7_vigan8_genomes.txt -o phavu7_vigan8.png
 plotsr --sr phavu26_phalu27syri.out --genomes phavu26_phalu27_genomes.txt -o phavu26_phalu27.png
 plotsr --sr phavu17_vigra18syri.out --genomes phavu17_vigra18_genomes.txt -o phavu17_vigra18.png
