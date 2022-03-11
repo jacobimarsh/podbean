@@ -23,41 +23,46 @@ conda activate plotsr
 ### multiplex from here
 conda activate plotsr
 module load samtools
-minimap2 -ax asm5 -t 4 --eqx glyma1.fa glyso2.fa | samtools sort -O BAM - > glyma1_glyso2.bam
-minimap2 -ax asm5 -t 4 --eqx glyso2.fa glyso3.fa | samtools sort -O BAM - > glyso2_glyso3.bam
-minimap2 -ax asm5 -t 4 --eqx glyso3.fa glyma4.fa | samtools sort -O BAM - > glyso3_glyma4.bam
-minimap2 -ax asm5 -t 4 --eqx glyma4.fa cajca5.fa | samtools sort -O BAM - > glyma4_cajca5.bam
-minimap2 -ax asm5 -t 4 --eqx cajca5.fa phalu6.fa | samtools sort -O BAM - > cajca5_phalu6.bam
-minimap2 -ax asm5 -t 4 --eqx phalu6.fa phavu7.fa | samtools sort -O BAM - > phalu6_phavu7.bam
-minimap2 -ax asm5 -t 4 --eqx phavu7.fa vigan8.fa | samtools sort -O BAM - > phavu7_vigan8.bam
-minimap2 -ax asm5 -t 4 --eqx vigan8.fa lupal9.fa | samtools sort -O BAM - > vigan8_lupal9.bam
-minimap2 -ax asm5 -t 4 --eqx lupal9.fa lupal10.fa | samtools sort -O BAM - > lupal9_lupal10.bam
-minimap2 -ax asm5 -t 4 --eqx lupal10.fa medtr11.fa | samtools sort -O BAM - > lupal10_medtr11.bam
-minimap2 -ax asm5 -t 4 --eqx medtr11.fa lotja12.fa | samtools sort -O BAM - > medtr11_lotja12.bam
-minimap2 -ax asm5 -t 4 --eqx lotja12.fa pissa13.fa | samtools sort -O BAM - > lotja12_pissa13.bam
-minimap2 -ax asm5 -t 4 --eqx pissa13.fa vitvi14.fa | samtools sort -O BAM - > pissa13_vitvi14.bam
-minimap2 -ax asm5 -t 4 --eqx vitvi14.fa vitvi15.fa | samtools sort -O BAM - > vitvi14_vitvi15.bam
-minimap2 -ax asm5 -t 4 --eqx vitvi15.fa phalu16.fa | samtools sort -O BAM - > vitvi15_phalu16.bam
-minimap2 -ax asm5 -t 4 --eqx phalu16.fa phavu17.fa | samtools sort -O BAM - > phalu16_phavu17.bam
-minimap2 -ax asm5 -t 4 --eqx phavu17.fa vigra18.fa | samtools sort -O BAM - > phavu17_vigra18.bam
-minimap2 -ax asm5 -t 4 --eqx vigra18.fa cicar19.fa | samtools sort -O BAM - > vigra18_cicar19.bam
-minimap2 -ax asm5 -t 4 --eqx cicar19.fa pissa20.fa | samtools sort -O BAM - > cicar19_pissa20.bam
-minimap2 -ax asm5 -t 4 --eqx pissa20.fa lupal21.fa | samtools sort -O BAM - > pissa20_lupal21.bam
-minimap2 -ax asm5 -t 4 --eqx lupal21.fa vigun22.fa | samtools sort -O BAM - > lupal21_vigun22.bam
-minimap2 -ax asm5 -t 4 --eqx vigun22.fa cajca23.fa | samtools sort -O BAM - > vigun22_cajca23.bam
-minimap2 -ax asm5 -t 4 --eqx cajca23.fa vigra24.fa | samtools sort -O BAM - > cajca23_vigra24.bam
-minimap2 -ax asm5 -t 4 --eqx vigra24.fa vigun25.fa | samtools sort -O BAM - > vigra24_vigun25.bam
-minimap2 -ax asm5 -t 4 --eqx vigun25.fa phavu26.fa | samtools sort -O BAM - > vigun25_phavu26.bam
-minimap2 -ax asm5 -t 4 --eqx phavu26.fa phalu27.fa | samtools sort -O BAM - > phavu26_phalu27.bam
-minimap2 -ax asm5 -t 4 --eqx phalu27.fa vigan28.fa | samtools sort -O BAM - > phalu27_vigan28.bam
-minimap2 -ax asm5 -t 4 --eqx vigan28.fa glyma29.fa | samtools sort -O BAM - > vigan28_glyma29.bam
-minimap2 -ax asm5 -t 4 --eqx glyma29.fa glyso30.fa | samtools sort -O BAM - > glyma29_glyso30.bam
-minimap2 -ax asm5 -t 4 --eqx glyso30.fa vigun31.fa | samtools sort -O BAM - > glyso30_vigun31.bam
-minimap2 -ax asm5 -t 4 --eqx vigun31.fa vigan32.fa | samtools sort -O BAM - > vigun31_vigan32.bam
-minimap2 -ax asm5 -t 4 --eqx vigan32.fa glyma33.fa | samtools sort -O BAM - > vigan32_glyma33.bam
-minimap2 -ax asm5 -t 4 --eqx glyma33.fa lotja34.fa | samtools sort -O BAM - > glyma33_lotja34.bam
-minimap2 -ax asm5 -t 4 --eqx lotja34.fa lotja35.fa | samtools sort -O BAM - > lotja34_lotja35.bam
-minimap2 -ax asm5 -t 4 --eqx lotja35.fa medtr36.fa | samtools sort -O BAM - > lotja35_medtr36.bam
+minimap2 -ax splice -t 4 --eqx glyma1.fa glyso2.fa | samtools sort -O BAM - > glyma1_glyso2.bam
+minimap2 -ax splice -t 4 --eqx glyso2.fa glyso3.fa | samtools sort -O BAM - > glyso2_glyso3.bam
+minimap2 -ax splice -t 4 --eqx glyso3.fa glyma4.fa | samtools sort -O BAM - > glyso3_glyma4.bam
+minimap2 -ax splice -t 4 --eqx glyma4.fa cajca5.fa | samtools sort -O BAM - > glyma4_cajca5.bam
+minimap2 -ax splice -t 4 --eqx cajca5.fa phalu6.fa | samtools sort -O BAM - > cajca5_phalu6.bam
+minimap2 -ax splice -t 4 --eqx phalu6.fa phavu7.fa | samtools sort -O BAM - > phalu6_phavu7.bam
+minimap2 -ax splice -t 4 --eqx phavu7.fa vigan8.fa | samtools sort -O BAM - > phavu7_vigan8.bam
+minimap2 -ax splice -t 4 --eqx vigan8.fa lupal9.fa | samtools sort -O BAM - > vigan8_lupal9.bam
+minimap2 -ax splice -t 4 --eqx lupal9.fa lupal10.fa | samtools sort -O BAM - > lupal9_lupal10.bam
+minimap2 -ax splice -t 4 --eqx lupal10.fa medtr11.fa | samtools sort -O BAM - > lupal10_medtr11.bam
+minimap2 -ax splice -t 4 --eqx medtr11.fa lotja12.fa | samtools sort -O BAM - > medtr11_lotja12.bam
+minimap2 -ax splice -t 4 --eqx lotja12.fa pissa13.fa | samtools sort -O BAM - > lotja12_pissa13.bam
+minimap2 -ax splice -t 4 --eqx pissa13.fa vitvi14.fa | samtools sort -O BAM - > pissa13_vitvi14.bam
+minimap2 -ax splice -t 4 --eqx vitvi14.fa vitvi15.fa | samtools sort -O BAM - > vitvi14_vitvi15.bam
+minimap2 -ax splice -t 4 --eqx vitvi15.fa phalu16.fa | samtools sort -O BAM - > vitvi15_phalu16.bam
+minimap2 -ax splice -t 4 --eqx phalu16.fa phavu17.fa | samtools sort -O BAM - > phalu16_phavu17.bam
+minimap2 -ax splice -t 4 --eqx phavu17.fa vigra18.fa | samtools sort -O BAM - > phavu17_vigra18.bam
+minimap2 -ax splice -t 4 --eqx vigra18.fa cicar19.fa | samtools sort -O BAM - > vigra18_cicar19.bam
+minimap2 -ax splice -t 4 --eqx cicar19.fa pissa20.fa | samtools sort -O BAM - > cicar19_pissa20.bam
+minimap2 -ax splice -t 4 --eqx pissa20.fa lupal21.fa | samtools sort -O BAM - > pissa20_lupal21.bam
+minimap2 -ax splice -t 4 --eqx lupal21.fa vigun22.fa | samtools sort -O BAM - > lupal21_vigun22.bam
+minimap2 -ax splice -t 4 --eqx vigun22.fa cajca23.fa | samtools sort -O BAM - > vigun22_cajca23.bam
+minimap2 -ax splice -t 4 --eqx cajca23.fa vigra24.fa | samtools sort -O BAM - > cajca23_vigra24.bam
+minimap2 -ax splice -t 4 --eqx vigra24.fa vigun25.fa | samtools sort -O BAM - > vigra24_vigun25.bam
+minimap2 -ax splice -t 4 --eqx vigun25.fa phavu26.fa | samtools sort -O BAM - > vigun25_phavu26.bam
+minimap2 -ax splice -t 4 --eqx phavu26.fa phalu27.fa | samtools sort -O BAM - > phavu26_phalu27.bam
+minimap2 -ax splice -t 4 --eqx phalu27.fa vigan28.fa | samtools sort -O BAM - > phalu27_vigan28.bam
+minimap2 -ax splice -t 4 --eqx vigan28.fa glyma29.fa | samtools sort -O BAM - > vigan28_glyma29.bam
+minimap2 -ax splice -t 4 --eqx glyma29.fa glyso30.fa | samtools sort -O BAM - > glyma29_glyso30.bam
+minimap2 -ax splice -t 4 --eqx glyso30.fa vigun31.fa | samtools sort -O BAM - > glyso30_vigun31.bam
+minimap2 -ax splice -t 4 --eqx vigun31.fa vigan32.fa | samtools sort -O BAM - > vigun31_vigan32.bam
+minimap2 -ax splice -t 4 --eqx vigan32.fa glyma33.fa | samtools sort -O BAM - > vigan32_glyma33.bam
+minimap2 -ax splice -t 4 --eqx glyma33.fa lotja34.fa | samtools sort -O BAM - > glyma33_lotja34.bam
+minimap2 -ax splice -t 4 --eqx lotja34.fa lotja35.fa | samtools sort -O BAM - > lotja34_lotja35.bam
+minimap2 -ax splice -t 4 --eqx lotja35.fa medtr36.fa | samtools sort -O BAM - > lotja35_medtr36.bam
+
+#fix splice 
+#samtools view -h -o out.sam vigun25_phavu26.bam
+#awk '{gsub("N","D",$6)}1' out.sam > out2.sam
+#samtools view -S -b out2.sam > sample.bam
 
 samtools index glyma1_glyso2.bam
 samtools index glyso2_glyso3.bam
@@ -131,21 +136,24 @@ syri/syri/bin/syri -c glyma33_lotja34.bam -r glyma33.fa -q lotja34.fa -F B --pre
 syri/syri/bin/syri -c lotja34_lotja35.bam -r lotja34.fa -q lotja35.fa -F B --prefix lotja34_lotja35 &
 syri/syri/bin/syri -c lotja35_medtr36.bam -r lotja35.fa -q medtr36.fa -F B --prefix lotja35_medtr36 &
 
-#Following lines successfully mapped
-vitvi14_vitvi15syri.out
-vigun31_vigan32syri.out
-vigra24_vigun25syri.out
-phavu7_vigan8syri.out
-phavu26_phalu27syri.out
-phavu17_vigra18syri.out
-phalu6_phavu7syri.out
-phalu27_vigan28syri.out
-phalu16_phavu17syri.out
-lupal9_lupal10syri.out
-glyso3_glyma4syri.out
-glyso2_glyso3syri.out
-glyma29_glyso30syri.out
-glyma1_glyso2syri.out
+
+
+
+##Following lines successfully mapped with asm5
+#vitvi14_vitvi15syri.out
+#vigun31_vigan32syri.out
+#vigra24_vigun25syri.out
+#phavu7_vigan8syri.out
+#phavu26_phalu27syri.out
+#phavu17_vigra18syri.out
+#phalu6_phavu7syri.out
+#phalu27_vigan28syri.out
+#phalu16_phavu17syri.out
+#lupal9_lupal10syri.out
+#glyso3_glyma4syri.out
+#glyso2_glyso3syri.out
+#glyma29_glyso30syri.out
+#glyma1_glyso2syri.out
 
 echo -e "#file\tname\ttags\nvitvi14.fa\tvitvi14\tlw:1.5\nvitvi15.fa\tvitvi15\tlw:1.5" > vitvi14_vitvi15_genomes.txt
 echo -e "#file\tname\ttags\nvigun31.fa\tvigun31\tlw:1.5\nvigan32.fa\tvigan32\tlw:1.5" > vigun31_vigan32_genomes.txt
