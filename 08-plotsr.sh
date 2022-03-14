@@ -77,6 +77,10 @@ minimap2 -a -k19 -w10 -U50,500 --rmq=yes -g10k -A1 -B3 -O4,24 -E2,1 -s200 -z200 
 #syri/syri/bin/syri -c phalu16_phavu17.bam -r phalu16.fa -q phavu17.fa -F B --prefix phalu16_phavu17 &
 #
 
+
+
+
+
 samtools index glyma1_glyso2.bam
 samtools index glyso2_glyso3.bam
 samtools index glyso3_glyma4.bam
@@ -114,7 +118,6 @@ samtools index lotja34_lotja35.bam
 samtools index lotja35_medtr36.bam
 
 
-syri/syri/bin/syri -c Vu3_Chr02.bam -r Vu3.fa -q Chr02.fa -F B --prefix Vu3_Chr02 &
 syri/syri/bin/syri -c glyma1_glyso2.bam -r glyma1.fa -q glyso2.fa -F B --prefix glyma1_glyso2 &
 syri/syri/bin/syri -c glyso2_glyso3.bam -r glyso2.fa -q glyso3.fa -F B --prefix glyso2_glyso3 &
 syri/syri/bin/syri -c glyso3_glyma4.bam -r glyso3.fa -q glyma4.fa -F B --prefix glyso3_glyma4 &
@@ -238,3 +241,27 @@ plotsr --sr vigan32_glyma33syri.out --genomes vigan32_glyma33_genomes.txt -o vig
 plotsr --sr glyma33_lotja34syri.out --genomes glyma33_lotja34_genomes.txt -o glyma33_lotja34.png
 plotsr --sr lotja34_lotja35syri.out --genomes lotja34_lotja35_genomes.txt -o lotja34_lotja35.png
 plotsr --sr lotja35_medtr36syri.out --genomes lotja35_medtr36_genomes.txt -o lotja35_medtr36.png
+
+#2 chroms
+samtools faidx vigun.fna
+samtools faidx vigun.fna vigun.IT97K-499-35.gnm1.Vu03 > Vu3.fa
+samtools faidx phavu.fna
+samtools faidx phavu.fna phavu.UI111.gnm1.Chr03 > Chr03.fa
+minimap2 -ax asm20 --eqx Vu3.fa Chr03.fa | samtools sort -O BAM - > Vu3_Chr03.bam
+samtools index Vu3_Chr03.bam
+syri/syri/bin/syri -c Vu3_Chr03.bam -r Vu3.fa -q Chr02.fa -F B --prefix Vu3_Chr03 &
+echo -e "#file\tname\ttags\nVu3.fa\tVu3\tlw:1.5\nChr03.fa\tChr03\tlw:1.5" > Vu3_Chr03_genomes.txt
+plotsr --sr Vu3_Chr03syri.out --genomes Vu3_Chr03_genomes.txt -o Vu3_Chr03.png
+#intrphavu
+samtools faidx phavu.fna phavu.UI111.gnm1.Chr03 > Chr03.fa
+samtools faidx phavu.fna phavu.UI111.gnm1.Chr02 > Chr02.fa
+minimap2 -ax asm20 --eqx Chr02.fa Chr03.fa | samtools sort -O BAM - > Chr02_Chr03.bam
+samtools index Chr02_Chr03.bam
+../syri/syri/bin/syri -c Chr02_Chr03.bam -r Chr02.fa -q Chr03.fa -F B --prefix Chr02_Chr03 &
+echo -e "#file\tname\ttags\nChr02.fa\tChr02\tlw:1.5\nChr03.fa\tChr03\tlw:1.5" > Chr02_Chr03_genomes.txt
+plotsr --sr Chr02_Chr03syri.out --genomes Chr02_Chr03_genomes.txt -o Chr02_Chr03.png
+##
+
+
+# I tried aligning the flanking regions to eachother however they simply don't align.
+# they aren't ancestrally closely related enough for it to map so maybe can try blast but probably just move on.
