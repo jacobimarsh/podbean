@@ -113,6 +113,8 @@ samtools index glyma33_lotja34.bam
 samtools index lotja34_lotja35.bam
 samtools index lotja35_medtr36.bam
 
+
+syri/syri/bin/syri -c Vu3_Chr02.bam -r Vu3.fa -q Chr02.fa -F B --prefix Vu3_Chr02 &
 syri/syri/bin/syri -c glyma1_glyso2.bam -r glyma1.fa -q glyso2.fa -F B --prefix glyma1_glyso2 &
 syri/syri/bin/syri -c glyso2_glyso3.bam -r glyso2.fa -q glyso3.fa -F B --prefix glyso2_glyso3 &
 syri/syri/bin/syri -c glyso3_glyma4.bam -r glyso3.fa -q glyma4.fa -F B --prefix glyso3_glyma4 &
