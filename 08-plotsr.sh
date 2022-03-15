@@ -260,8 +260,13 @@ samtools index Chr02_Chr03.bam
 ../syri/syri/bin/syri -c Chr02_Chr03.bam -r Chr02.fa -q Chr03.fa -F B --prefix Chr02_Chr03 &
 echo -e "#file\tname\ttags\nChr02.fa\tChr02\tlw:1.5\nChr03.fa\tChr03\tlw:1.5" > Chr02_Chr03_genomes.txt
 plotsr --sr Chr02_Chr03syri.out --genomes Chr02_Chr03_genomes.txt -o Chr02_Chr03.png
-##
-
+#phalu16 to phalu27
+minimap2 -a -k19 -w10 -U50,500 --rmq=yes -g10k -A1 -B3 -O4,24 -E2,1 -s200 -z200 -N50 --eqx phalu16.fa phalu27.fa | samtools sort -O BAM - > phalu16_phalu27.bam
+samtools index phalu16_phalu27.bam
+syri/syri/bin/syri -c phalu16_phalu27.bam -r phalu16.fa -q phalu27.fa -F B --prefix phalu16_phalu27 &
+echo -e "#file\tname\ttags\nphalu16.fa\tphalu16\tlw:1.5\nphalu27.fa\tphalu27\tlw:1.5" > phalu16_phalu27_genomes.txt
+plotsr --sr phalu16_phalu27syri.out --genomes phalu16_phalu27_genomes.txt -o phalu16_phalu27.png
+##no align
 
 # I tried aligning the flanking regions to eachother however they simply don't align.
 # they aren't ancestrally closely related enough for it to map so maybe can try blast but probably just move on.
