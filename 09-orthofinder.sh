@@ -38,6 +38,8 @@ cat soybean_prob_AUGonly_fin.aa | while read line; do if [[ ${line:0:1} == '>' ]
 # mv lotja:AUGUSTUS:norm:other:1502-2047:lotja.MG20.gnm3.Lj4:8946504-8950204.fa lotja35.aa
 # mv lotja:AUGUSTUS:norm:.:1502-2047:lotja.MG20.gnm3.Lj4:39629947-39633647.fa lotja34.aa
 
+scp soybean_prob_AUGonly_fin.aa OF_input_AUG.aa
+#remove the pissa with the downstream annotation match, add Gm16 pdh1
 
 sed -i 's/glyso:AUGUSTUS:norm:dir:1502-2074:glyso.W05.gnm1.Chr05:41419993-41423693/glyso2/' OF_input_AUG.aa
 sed -i 's/glyso:AUGUSTUS:norm:dir:1502-2071:glyso.W05.gnm1.Chr08:1641010-1644710/glyso3/' OF_input_AUG.aa
