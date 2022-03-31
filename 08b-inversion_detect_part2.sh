@@ -51,3 +51,5 @@ nucmer -p lotja34_lotja35 lotja34.fa lotja35.fa; mummerplot -p lotja34_lotja35 -
 nucmer -p lotja35_medtr36 lotja35.fa medtr36.fa; mummerplot -p lotja35_medtr36 --png lotja35_medtr36.delta; sed -i 's/ png.*/ pngcairo/' lotja35_medtr36.gp; sed -i '/set mouse clipboardformat/d'	lotja35_medtr36.gp; gnuplot	lotja35_medtr36.gp
 
 
+nucmer -p phalu16_phalu6 phalu16.fa phalu6.fa; mummerplot -p phalu16_phalu6 --png phalu16_phalu6.delta; sed -i 's/ png.*/ pngcairo/' phalu16_phalu6.gp;	sed -i '/set mouse clipboardformat/d' phalu16_phalu6.gp; gnuplot	phalu16_phalu6.gp
+
