@@ -68,8 +68,8 @@ cat all_1kbflank_blast_flanks.txt all_BLAST_hits.gff > BLASTHITS_excel_xport.txt
 
 ##locate Gmscarecrow15
 cat species.txt | while read line
-do makeblastdb -dbtype nucl -in ../fasta_blast2/${line}.fna
-blastn -db ../fasta_blast2/${line}.fna -query glyma16_scarecrow.fa -outfmt 6 -word_size 11 | grep 'e-' | grep -v 'e-0' > ${line}_scarecrow_blast.txt
+do makeblastdb -dbtype nucl -in ../muscle_flanks/${line}.fna
+blastn -db ../muscle_flanks/${line}.fna -query glyma16_scarecrow.fa -outfmt 6 -word_size 11 | grep 'e-' | grep -v 'e-0' > ${line}_scarecrow_blast.txt
 done
 
 ##
