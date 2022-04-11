@@ -20,3 +20,5 @@ LDBlockShow/bin/ShowLDSVG -InPreFix 16_30125287_imp_R2_12kb -OutPut 16_30125287_
 #####Can take this ~12kb region (done), find ORF (3'>5' Frame 1; skips first 2 SNPs, rev order)
 
 ##Found dirigent orthologs with protein sequence homology. Can use this region.
+
+##Will use 50kb flanks from pdh1 to characterize region
