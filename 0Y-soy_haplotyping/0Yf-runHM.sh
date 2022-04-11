@@ -195,3 +195,9 @@ distance_plot(snp_data = HM${NAME}_haplotypes\$Filtered_markers,
 scp /scratch/pawsey0149/jmarsh1/podshatter/glyma/haploupe/input/template.slm HM${NAME}_CT${CT}_MIT${MIT}.slm
 sed -i "s/genename/HM${NAME}_CT${CT}_MIT${MIT}/g" HM${NAME}_CT${CT}_MIT${MIT}.slm
 sbatch HM${NAME}_CT${CT}_MIT${MIT}.slm
+
+##11/04 run runHM.sh -r 100000 -m 0.8 -c 0.5 -n Gm16_301_302_C0.5 -g 16 30100000 30200000 -o ../analysis_output/
+##11/04 run runHM.sh -r 100000 -m 0.8 -c 0.6 -n Gm16_301_302_C0.6 -g 16 30100000 30200000 -o ../analysis_output/
+##11/04 run runHM.sh -r 100000 -m 0.8 -c 0.7 -n Gm16_301_302_C0.7 -g 16 30100000 30200000 -o ../analysis_output/
+##11/04 run runHM.sh -r 100000 -m 0.8 -c 0.8 -n Gm16_301_302_C0.8 -g 16 30100000 30200000 -o ../analysis_output/
+##11/04 run runHM.sh -r 100000 -m 0.8 -c 0.9 -n Gm16_301_302_C0.9 -g 16 30100000 30200000 -o ../analysis_output/
