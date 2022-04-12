@@ -26,7 +26,7 @@ sed -i "s/Gmrs/rs/" indep500_1_0.9_nohet_prefin_impu_bial_16_SNP_id_filt_all.hmp
 plink2 --vcf ../impu_bial_16_SNP_id_filt_all.vcf  --indep-pairwise 1000 5 0.8 --make-bed --out indep1000_5_0.8_impu_bial_16_SNP_id_filt_all
 plink --bfile indep1000_5_0.8_impu_bial_16_SNP_id_filt_all --extract indep1000_5_0.8_impu_bial_16_SNP_id_filt_all.prune.in --make-bed
 sed 's/0_//g' !$ > indep1000_5_0.8_impu_bial_16_SNP_id_filt_all.vcf
-sed 's/0\/1/.\/./g' indep1000_5_0.8_impu_bial_16_SNP_id_filt_all.vcf >> indep1000_5_0.8_nohet_impu_bial_16_SNP_id_filt_all.vcf
+sed 's/0\/1/.\/./g' indep1000_5_0.8_impu_bial_16_SNP_id_filt_all.vcf > indep1000_5_0.8_nohet_impu_bial_16_SNP_id_filt_all.vcf
 sed -i 's/1\/0/.\/./g' indep1000_5_0.8_nohet_impu_bial_16_SNP_id_filt_all.vcf
 module load java
 java -jar /group/pawsey0149/jmarsh1/packages/beagle.18May20.d20.jar gt=indep1000_5_0.8_nohet_impu_bial_16_SNP_id_filt_all.vcf nthreads=22 out=indep1000_5_0.8_nohet_prefin_impu_bial_16_SNP_id_filt_all
