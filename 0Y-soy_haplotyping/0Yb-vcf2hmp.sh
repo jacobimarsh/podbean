@@ -11,8 +11,8 @@ sed -i "s/Gmrs/rs/" nohet_prefin_impu_bial_16_SNP_id_filt_all.hmp.txt
 grep -v $'\tAC\t\|\tAG\t\|\tAT\t\|\tCA\t\|\tCG\t\|\tCT\t\|\tGA\t\|\tGC\t\|\tGT\t\|\tTA\t\|\tTC\t\|\tTG\t\|\tA\t20\|\tC\t20\|\tG\t20\|\tT\t20' nohet_prefin_impu_bial_16_SNP_id_filt_all.hmp.txt >> nohet_fin_impu_bial_16_SNP_id_filt_all.hmp.txt
 #pruning for independance so it can run on 100kb region
 plink2 --vcf ../impu_bial_16_SNP_id_filt_all.vcf  --indep-pairwise 500 1 0.9 --make-bed --out indep500_1_0.9_impu_bial_16_SNP_id_filt_all
-plink --bfile indep500_1_0.9_impu_bial_16_SNP_id_filt_all --extract indep500_1_0.9_impu_bial_16_SNP_id_filt_all.prune.in --make-bed
-sed 's/0_//g' !$ > indep500_1_0.9_impu_bial_16_SNP_id_filt_all.vcf
+plink --bfile indep500_1_0.9_impu_bial_16_SNP_id_filt_all --extract indep500_1_0.9_impu_bial_16_SNP_id_filt_all.prune.in --recode vcf --out indep500_1_0.9_impu_bial_16_SNP_id_filt_all
+sed 's/0_//g' indep500_1_0.9_impu_bial_16_SNP_id_filt_all.vcf > indep500_1_0.9_impu_bial_16_SNP_id_filt_all.vcf
 sed 's/0\/1/.\/./g' indep500_1_0.9_impu_bial_16_SNP_id_filt_all.vcf >> indep500_1_0.9_nohet_impu_bial_16_SNP_id_filt_all.vcf
 sed -i 's/1\/0/.\/./g' indep500_1_0.9_nohet_impu_bial_16_SNP_id_filt_all.vcf
 module load java
@@ -24,8 +24,9 @@ sed -i "s/^/Gm/" indep500_1_0.9_nohet_prefin_impu_bial_16_SNP_id_filt_all.hmp.tx
 sed -i "s/Gmrs/rs/" indep500_1_0.9_nohet_prefin_impu_bial_16_SNP_id_filt_all.hmp.txt
 #deep pruning for indep
 plink2 --vcf ../impu_bial_16_SNP_id_filt_all.vcf  --indep-pairwise 1000 5 0.8 --make-bed --out indep1000_5_0.8_impu_bial_16_SNP_id_filt_all
-plink --bfile indep1000_5_0.8_impu_bial_16_SNP_id_filt_all --extract indep1000_5_0.8_impu_bial_16_SNP_id_filt_all.prune.in --make-bed
-sed 's/0_//g' !$ > indep1000_5_0.8_impu_bial_16_SNP_id_filt_all.vcf
+plink --bfile indep1000_5_0.8_impu_bial_16_SNP_id_filt_all --extract indep1000_5_0.8_impu_bial_16_SNP_id_filt_all.prune.in --recode vcf --out indep1000_5_0.8_impu_bial_16_SNP_id_filt_all
+#mv indep1000_5_0.8_impu_bial_16_SNP_id_filt_all.recode.vcf indep1000_5_0.8_impu_bial_16_SNP_id_filt_all.vcf
+sed -i 's/0_//g' indep1000_5_0.8_impu_bial_16_SNP_id_filt_all.vcf
 sed 's/0\/1/.\/./g' indep1000_5_0.8_impu_bial_16_SNP_id_filt_all.vcf > indep1000_5_0.8_nohet_impu_bial_16_SNP_id_filt_all.vcf
 sed -i 's/1\/0/.\/./g' indep1000_5_0.8_nohet_impu_bial_16_SNP_id_filt_all.vcf
 module load java
