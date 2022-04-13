@@ -201,6 +201,7 @@ sbatch HM${NAME}_CT${CT}_MIT${MIT}.slm
 ##11/04 run runHM.sh -r 100000 -m 0.8 -c 0.7 -n Gm16_301_302_C0.7 -g 16 30100000 30200000 -o ../analysis_output/
 ##11/04 run runHM.sh -r 100000 -m 0.8 -c 0.8 -n Gm16_301_302_C0.8 -g 16 30100000 30200000 -o ../analysis_output/
 ##11/04 run runHM.sh -r 100000 -m 0.8 -c 0.9 -n Gm16_301_302_C0.9 -g 16 30100000 30200000 -o ../analysis_output/
+generic_runHM.sh -i ../input/indep500_1_0.9_nohet_prefin_impu_bial_16_SNP_id_filt_all.hmp.txt -k ../input/nohet_fin_impu_bial_16_SNP_id_filt_all_kinship_HMformatted.txt -s ../input/impu_bial_16_SNP_id_filt_all.vcf.10.meanQ_HMformatted.txt -gdb ../input/my_gene_db.txt -cdb ../input/chr16_size.txt -r 50000 -m 0.8 -c 0.9 -n Gm16_301_302_C0.6
 generic_runHM.sh -i ../input/indep1000_5_0.8_nohet_prefin_impu_bial_16_SNP_id_filt_all.hmp.txt -k ../input/nohet_fin_impu_bial_16_SNP_id_filt_all_kinship_HMformatted.txt -s ../input/impu_bial_16_SNP_id_filt_all.vcf.10.meanQ_HMformatted.txt -gdb ../input/my_gene_db.txt -cdb ../input/chr16_size.txt -r 50000 -m 0.9 -c 0.6 -n Gm16_301_302_C0.6
 generic_runHM.sh -r 100000 -m 0.8 -c 0.5 -n Gm16_301_302_C0.5_indep -g 16 30100000 30200000 -o ../analysis_output/
 generic_runHM.sh -r 100000 -m 0.8 -c 0.6 -n Gm16_301_302_C0.6_indep -g 16 30100000 30200000 -o ../analysis_output/
