@@ -1,0 +1,9 @@
+#with late shatter scores
+nohet_fin_impu_bial_16_SNP_id_filt_all.hmp.txt
+nohet_prefin_impu_bial_16_SNP_id_filt_all.hmp.txt
+#undefined groups PI366122
+#undefined groups USB.055
+#undefined groups USB.350
+#undefined groups USB027
+
+for i in {5..9}; do grep -A 10000 'Haplotypes$Assignment' HMGm16_301_302_indep_CT0.${i}_MIT0.8.o | tail -n +3 | awk '{print $2,$3}' | head -n -2 | sed 's/ /\t/' > HMGm16_301_302_indep_CT0.${i}_MIT0.8.haps; done 
