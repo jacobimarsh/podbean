@@ -1,28 +1,37 @@
+##You need to make individual fasta files for each of your genes labeled abc.fna
+##You need to make a file called genes.txt with each of your genes fasta prefixes (abc) 
+##You need to label all your reference fasta files for your species xyz.fna
+##You need to make a file called species.txt with each of your species fasta prefixes (xyz) 
+##Note, perfect matches (e-value = 1) are not found
+
 #conda create --name blast
 conda activate blast
 #conda install -c bioconda blast
 module load bedtools
 
-makeblastdb -dbtype nucl -in yourdb.fna
+cat species.txt | while read species
+do
+makeblastdb -dbtype nucl -in ${species}.fna
 echo -e "shortID\tChromosome\theader\t%\tident\tlength\tmismatch\tgapopen\tqrystart\tqryend\tsubstart\tsubend\tEvalue\tbitscore\tdirection\tflank start\tflank end" > all_e10_blast_flanks.txt
 cat genes.txt | while read genes
 do
-blastn -db yourdb.fna -query ${genes}.fa -outfmt 6 -word_size 11 | grep 'e-' | grep -v 'e-0' > ${genes}_e10_blast.txt
-cat ${genes}_e10_blast.txt | 
-  awk '{if ($10>$9) $13 = "norm"; else $13 = "inv"; print $0, OFS = "\t"}' |
-    awk 'FS="\t" {if ($13 == "norm") $14 = $9 - FLANKRANGE; else $14 = $10 - FLANKRANGE; print $0, OFS = "\t"}'
-      awk 'FS="\t" {if ($13 == "norm") $15 = $10 + FLANKRANGE; else $15 = $9 + FLANKRANGE; print $0, OFS = "\t"}' >> all_e10_blast_flanks.txt
+blastn -db ${species}.fna -query ${genes}.fa -outfmt 6 -word_size 11 | grep 'e-' | grep -v 'e-0' > ${species}_${genes}_e10_blast.txt
+echo ${species}_${genes} | 
+  xargs -I [] awk '$13 = "[]"' ${species}_${genes}_e10_blast.txt | 
+    awk '{if ($10>$9) $14 = "norm"; else $14 = "inv"; print $0, OFS = "\t"}' |
+      awk 'FS="\t" {if ($14 == "norm") $15 = $9 - FLANKRANGE; else $14 = $10 - FLANKRANGE; print $0, OFS = "\t"}'
+         awk 'FS="\t" {if ($14 == "norm") $16 = $10 + FLANKRANGE; else $15 = $9 + FLANKRANGE; print $0, OFS = "\t"}' >> all_${species}_e10_blast_flanks.txt
 done
 
-echo '#!/bin/bash' > get_flanks_fa.sh
-cat genes.txt | sed 's/$/.fna/' | sed 's/^/samtools faidx /' >> get_flanks_fa.sh
+echo '#!/bin/bash' > get_flanks_fa_${species}.sh
+cat genes.txt | sed 's/$/.fna/' | sed 's/^/samtools faidx /' >> get_flanks_fa_${species}.sh
 cat genes.txt | while read genes
 do
-grep ${genes} all_e10_blast_flanks.txt | grep norm | awk '{print $1, $2, $14, $15}' | sed 's/ /:/g' | sed -r 's/:([^:]*)$/-\1/' | sed 's/:/.fna /' | sed 's/^/samtools faidx /' | sed 's/$/ \>> ${genes}_flanks.fa/' >> get_flanks_fa.sh
-grep ${genes} all_e10_blast_flanks.txt | grep inv | awk '{print $1, $2, $15, $14}' | sed 's/ /:/g' | sed -r 's/:([^:]*)$/-\1/' | sed 's/:/.fna /' | sed 's/^/samtools faidx /' | sed 's/$/ \>> ${genes}_flanks.fa/' >> get_flanks_fa.sh
-chmod u+x get_flanks_fa.sh
-get_flanks_fa.sh
-
+grep ${genes} all_e10_blast_flanks.txt | grep norm | awk '{print $1, $2, $15, $16}' | sed 's/ /:/g' | sed -r 's/:([^:]*)$/-\1/' | sed 's/:/.fna /' | sed 's/^/samtools faidx /' | sed 's/$/ \>> ${genes}_flanks.fa/' >> get_flanks_fa_${species}.sh
+grep ${genes} all_e10_blast_flanks.txt | grep inv | awk '{print $1, $2, $16, $15}' | sed 's/ /:/g' | sed -r 's/:([^:]*)$/-\1/' | sed 's/:/.fna /' | sed 's/^/samtools faidx /' | sed 's/$/ \>> ${genes}_flanks.fa/' >> get_flanks_fa_${species}.sh
+chmod u+x get_flanks_fa_${species}.sh
+get_flanks_fa_${species}.sh
+done
 
 
 ######The below script is what I used to check if a gene model in the gff overlaps with the flanking region of a significant hit
