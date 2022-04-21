@@ -11,7 +11,11 @@ nohet_prefin_impu_bial_16_SNP_id_filt_all.hmp.txt
 for i in {1..9}; do grep -A 10000 'Haplotypes$Assignment' HMGm16_301_302_indep_CT0.${i}_MIT0.8.o | tail -n +3 | awk '{print $2,$3}' | head -n -2 | sed 's/ /\t/' > HMGm16_301_302_indep_CT0.${i}_MIT0.8.haps; done 
 #for i in {1..9}; do sed "s/$/\tCT0.${i}/" HMGm16_301_302_indep_CT0.${i}_MIT0.8.haps >> HMGm16_301_302_indep_ALLCT_MIT0.8.haps; done
 
+########
 
+run_CT_clustree.sh -prefix HMGm16_301_302_indep_MIT0.8 -thresholds 5 9 1 -pheno pheno.txt
+
+R
 library(clustree)
 library(tidyverse)
 
