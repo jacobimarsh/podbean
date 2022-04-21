@@ -1,1 +1,41 @@
+#conda create --name blast
+conda activate blast
+#conda install -c bioconda blast
+module load bedtools
 
+makeblastdb -dbtype nucl -in yourdb.fna
+echo -e "shortID\tChromosome\theader\t%\tident\tlength\tmismatch\tgapopen\tqrystart\tqryend\tsubstart\tsubend\tEvalue\tbitscore\tdirection\tflank start\tflank end" > all_e10_blast_flanks.txt
+cat genes.txt | while read genes
+do
+blastn -db yourdb.fna -query ${genes}.fa -outfmt 6 -word_size 11 | grep 'e-' | grep -v 'e-0' > ${genes}_e10_blast.txt
+cat ${genes}_e10_blast.txt | 
+  awk '{if ($10>$9) $13 = "norm"; else $13 = "inv"; print $0, OFS = "\t"}' |
+    awk 'FS="\t" {if ($13 == "norm") $14 = $9 - FLANKRANGE; else $14 = $10 - FLANKRANGE; print $0, OFS = "\t"}'
+      awk 'FS="\t" {if ($13 == "norm") $15 = $10 + FLANKRANGE; else $15 = $9 + FLANKRANGE; print $0, OFS = "\t"}' >> all_e10_blast_flanks.txt
+done
+
+echo '#!/bin/bash' > get_flanks_fa.sh
+cat genes.txt | sed 's/$/.fna/' | sed 's/^/samtools faidx /' >> get_flanks_fa.sh
+cat genes.txt | while read genes
+do
+grep ${genes} all_e10_blast_flanks.txt | grep norm | awk '{print $1, $2, $14, $15}' | sed 's/ /:/g' | sed -r 's/:([^:]*)$/-\1/' | sed 's/:/.fna /' | sed 's/^/samtools faidx /' | sed 's/$/ \>> ${genes}_flanks.fa/' >> get_flanks_fa.sh
+grep ${genes} all_e10_blast_flanks.txt | grep inv | awk '{print $1, $2, $15, $14}' | sed 's/ /:/g' | sed -r 's/:([^:]*)$/-\1/' | sed 's/:/.fna /' | sed 's/^/samtools faidx /' | sed 's/$/ \>> ${genes}_flanks.fa/' >> get_flanks_fa.sh
+chmod u+x get_flanks_fa.sh
+get_flanks_fa.sh
+
+
+
+######The below script is what I used to check if a gene model in the gff overlaps with the flanking region of a significant hit
+######It's not been altered for use with your data but its adaptable if needed, talk to me if so
+#
+#cat species.txt | while read line
+#do
+#cat all_1kbflank_blast_flanks.txt | 
+#  grep ${line} | 
+#    awk '{if ($1 !~ /^#/) print($2"\t"$14-1"\t"$15)}' | 
+#      tail -n +2 | awk '{if ($2 > $3) print $1"\t"$3"\t"$2; else print}' | 
+#        bedtools intersect -nonamecheck -b stdin -a ${line}.gff* -wao | 
+#          grep -v '\-1' | 
+#            grep -P '\tgene\t' > ${line}_BLAST_hits.gff
+#done
+#cat *_BLAST_hits.gff > all_BLAST_hits.gff
