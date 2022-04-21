@@ -2,7 +2,6 @@
 ##You need to make a file called genes.txt with each of your genes fasta prefixes (abc) 
 ##You need to label all your reference fasta files for your species xyz.fna
 ##You need to make a file called species.txt with each of your species fasta prefixes (xyz) 
-##Note, perfect matches (e-value = 1) are not found
 
 #conda create --name blast
 conda activate blast
@@ -30,12 +29,12 @@ echo '#!/bin/bash' > get_flanks_fa_${species}.sh
 cat genes.txt | sed 's/$/.fna/' | sed 's/^/samtools faidx /' >> get_flanks_fa_${species}.sh
 cat genes.txt | while read genes
 do
-grep ${genes} all_e10_blast_flanks.txt | grep norm | awk '{print $1, $2, $15, $16}' | sed 's/ /:/g' | sed -r 's/:([^:]*)$/-\1/' | sed 's/:/.fna /' | sed 's/^/samtools faidx /' | sed 's/$/ \>> ${genes}_flanks.fa/' >> get_flanks_fa_${species}.sh
-grep ${genes} all_e10_blast_flanks.txt | grep inv | awk '{print $1, $2, $16, $15}' | sed 's/ /:/g' | sed -r 's/:([^:]*)$/-\1/' | sed 's/:/.fna /' | sed 's/^/samtools faidx /' | sed 's/$/ \>> ${genes}_flanks.fa/' >> get_flanks_fa_${species}.sh
+grep ${genes} all_${species}_e10_blast_flanks.txt | grep norm | awk '{print $1, $2, $15, $16}' | sed 's/ /:/g' | sed -r 's/:([^:]*)$/-\1/' | sed 's/:/.fna /' | sed 's/^/samtools faidx /' | sed 's/$/ \>> ${species}_${genes}_flanks.fa/' >> get_flanks_fa_${species}.sh
+grep ${genes} all_${species}_e10_blast_flanks.txt | grep inv | awk '{print $1, $2, $16, $15}' | sed 's/ /:/g' | sed -r 's/:([^:]*)$/-\1/' | sed 's/:/.fna /' | sed 's/^/samtools faidx /' | sed 's/$/ \>> ${species}_${genes}_flanks.fa/' >> get_flanks_fa_${species}.sh
+done
 chmod u+x get_flanks_fa_${species}.sh
 get_flanks_fa_${species}.sh
 done
-
 
 ######The below script is what I used to check if a gene model in the gff overlaps with the flanking region of a significant hit
 ######It's not been altered for use with your data but its adaptable if needed, talk to me if so
