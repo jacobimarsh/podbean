@@ -15,9 +15,12 @@ makeblastdb -dbtype nucl -in ${species}.fna
 echo -e "shortID\tChromosome\theader\t%\tident\tlength\tmismatch\tgapopen\tqrystart\tqryend\tsubstart\tsubend\tEvalue\tbitscore\tgenename\tdirection\tflank start\tflank end" > all_e10_blast_flanks.txt
 cat genes.txt | while read genes
 do
-blastn -db ${species}.fna -query ${genes}.fa -outfmt 6 -word_size 11 | grep 'e-' | grep -v 'e-0' > ${species}_${genes}_e10_blast.txt
+blastn -db ${species}.fna -query ${genes}.fa -outfmt 6 -word_size 11 > ${species}_${genes}_blast.txt
+awk '$11 = 1 {print $0, OFS="\t"}' ${species}_${genes}_blast.txt > ${species}_${genes}_e10_blast.txt
+grep 'e-' ${species}_${genes}_blast.txt | grep -v 'e-0' >> ${species}_${genes}_e10_blast.txt
+
 echo ${species}_${genes} | 
-  xargs -I [] awk '$13 = "[]"' ${species}_${genes}_e10_blast.txt | 
+  xargs -I [] awk 'FS="\t" {$13 = "[]"; print $0, OFS = "\t"}' ${species}_${genes}_e10_blast.txt | 
     awk '{if ($10>$9) $14 = "norm"; else $14 = "inv"; print $0, OFS = "\t"}' |
       awk 'FS="\t" {if ($14 == "norm") $15 = $9 - FLANKRANGE; else $14 = $10 - FLANKRANGE; print $0, OFS = "\t"}'
          awk 'FS="\t" {if ($14 == "norm") $16 = $10 + FLANKRANGE; else $15 = $9 + FLANKRANGE; print $0, OFS = "\t"}' >> all_${species}_e10_blast_flanks.txt
