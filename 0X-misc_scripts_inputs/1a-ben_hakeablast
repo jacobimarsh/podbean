@@ -12,7 +12,7 @@ module load bedtools
 cat species.txt | while read species
 do
 makeblastdb -dbtype nucl -in ${species}.fna
-echo -e "shortID\tChromosome\theader\t%\tident\tlength\tmismatch\tgapopen\tqrystart\tqryend\tsubstart\tsubend\tEvalue\tbitscore\tdirection\tflank start\tflank end" > all_e10_blast_flanks.txt
+echo -e "shortID\tChromosome\theader\t%\tident\tlength\tmismatch\tgapopen\tqrystart\tqryend\tsubstart\tsubend\tEvalue\tbitscore\tgenename\tdirection\tflank start\tflank end" > all_e10_blast_flanks.txt
 cat genes.txt | while read genes
 do
 blastn -db ${species}.fna -query ${genes}.fa -outfmt 6 -word_size 11 | grep 'e-' | grep -v 'e-0' > ${species}_${genes}_e10_blast.txt
