@@ -26,11 +26,11 @@
 #mv HMGm16_301_302_indep_CT0.9_MIT0.9.o	HMGm16_301_302_indep_MIT0.9_CT0.9.o
 #mv HMGm16_301_302_indep_CT0.9_MIT0.8.o	HMGm16_301_302_indep_MIT0.8_CT0.9.o
 #mv HMGm16_301_302_indep_CT0.8_MIT0.9.o	HMGm16_301_302_indep_MIT0.9_CT0.8.o
-mv HMGm16_301_302_indep_CT0.8_MIT0.8.o	HMGm16_301_302_indep_MIT0.8_CT0.8.o
-
-run_CT_clustree.sh HMGm16_301_302_indep_MIT0.8 late_shatter.txt
-run_CT_clustree.sh HMGm16_301_302_MIT0.9 late_shatter.txt
-run_CT_clustree.sh HMGm16_301_302_MIT0.8 late_shatter.txt
+#mv HMGm16_301_302_indep_CT0.8_MIT0.8.o	HMGm16_301_302_indep_MIT0.8_CT0.8.o
+#
+#run_CT_clustree.sh HMGm16_301_302_indep_MIT0.8 late_shatter.txt
+#run_CT_clustree.sh HMGm16_301_302_MIT0.9 late_shatter.txt
+#run_CT_clustree.sh HMGm16_301_302_MIT0.8 late_shatter.txt
 
 #!/bin/bash
 PREFIX=${1?Error: no prefix provided}
