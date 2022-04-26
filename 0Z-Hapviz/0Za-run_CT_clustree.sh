@@ -81,3 +81,21 @@ ggsave('clustree_${2}_${1}.pdf',
        width = 16,
        units = 'in')" > clustree_${2}_${1}.R
 Rscript clustree_${2}_${1}.R
+
+##to get table summary
+#for i in ./*.haps; do echo ${i}; awk '{print $2}'  ${i} | sort | uniq -c | sort -rk1 | awk '
+#{
+#    for (i=1; i<=NF; i++)  {
+#        a[NR,i] = $i
+#    }
+#}
+#NF>p { p = NF }
+#END {
+#    for(j=1; j<=p; j++) {
+#        str=a[1,j]
+#        for(i=2; i<=NR; i++){
+#            str=str" "a[i,j];
+#        }
+#        print str
+#    }
+#}'; done >> table_sum.txt
