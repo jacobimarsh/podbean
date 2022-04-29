@@ -40,13 +40,13 @@ for(snp in unique(rawpfile$SNP)){
 keptSNPs <- rawpfile %>% 
   filter(SNP==grp)
 
-file4_filt <- keptSNPs %>% separate_rows(TAGS, sep='\\|') %>% select(SNP,TAGS)
+file4_filt_in <- keptSNPs %>% separate_rows(TAGS, sep='\\|') %>% select(SNP,TAGS)
 
 removedSNPs <- rawpfile %>% 
   filter(SNP!=grp)
 
 write_tsv(keptSNPs,'kept_SNPtags.txt')
-write_tsv(file4_filt, 'file4_filt.txt')
+write_tsv(file4_filt, 'file4_filt_in.txt')
 write_tsv(removedSNPs,'removed_Mreps.txt')
 
 #write_tsv(select(keptSNPs, TAGS),'kept_SNPtags.txt', col_names= F)
