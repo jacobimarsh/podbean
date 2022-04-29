@@ -3,6 +3,8 @@ HMP=${1?Error: no hapmap file provided for haplotype combinations}
 VCF=${2?Error: no vcf file provided for chromosome}
 PREFIX=${3?Error: no prefix provided}
 
+conda activate r3.6
+
 echo -e "library(data.table)
 library(tidyverse)
 
@@ -17,21 +19,22 @@ write_tsv(file2,'${3}_2file.txt')" > get2file_${3}.R
 
 Rscript get2file_${3}.R
 
+#### 4file
+awk '{print $1}' ${1} | tail -n +2 > ${3}_Mreps_sites.txt
+sed -i 's/Gm//' ${3}_Mreps_sites.txt
+##need to make sure the SNP IDs have the same naming convention (e.g. Gm16_... vs 16_...)
+/group/pawsey0149/jmarsh1/packages/PLINK/plink --vcf ${2} --show-tags ${3}_Mreps_sites.txt --tag-r2 0.9 --list-all --out ${3}_prepruned
 
-#a lot of porting + plink tags
-
-
-
-library(tidyverse)
+echo -e "library(tidyverse)
 library(data.table)
 
-rawpfile <- fread('C:/Users/21485753/Desktop/pod/tagphenosbox/plink.tags.list') %>% 
+rawpfile <- fread('${3}_prepruned.tags.list') %>% 
   as_tibble() %>% 
   arrange(-NTAG) %>% 
   mutate(grp='')
 
 
-for(snp in unique(rawpfile$SNP)){
+for(snp in unique(rawpfile\$SNP)){
   rawpfile <- rawpfile %>% 
     mutate(grp=ifelse(grp == '' & SNP==snp,snp,grp))
   rawpfile <- rawpfile %>% 
@@ -42,15 +45,12 @@ for(snp in unique(rawpfile$SNP)){
 keptSNPs <- rawpfile %>% 
   filter(SNP==grp)
 
-file4_filt_in <- keptSNPs %>% separate_rows(TAGS, sep='\\|') %>% select(SNP,TAGS)
+file4_filt_in <- keptSNPs %>% separate_rows(TAGS, sep='\\\\\|') %>% select(SNP,TAGS)
 
 removedSNPs <- rawpfile %>% 
   filter(SNP!=grp)
 
-write_tsv(keptSNPs,'kept_SNPtags.txt')
-write_tsv(file4_filt, 'file4_filt_in.txt')
-write_tsv(removedSNPs,'removed_Mreps.txt')
-
-#write_tsv(select(keptSNPs, TAGS),'kept_SNPtags.txt', col_names= F)
-#write_tsv(select(removedSNPs, SNP, grp),'removed_Mreps.txt')
-#keptSNPs %>% separate_rows(TAGS, sep='\\|')
+write_tsv(keptSNPs,'${3}_pruned_Mreps.in.txt')
+write_tsv(file4_filt_in, '${3}_4file.txt')
+write_tsv(removedSNPs,'${3}_pruned_Mreps.out.txt')" > get4file_${3}.R
+Rscript get4file_${3}.R
