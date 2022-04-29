@@ -7,7 +7,7 @@ args <- commandArgs(trailingOnly=TRUE)
 
 tag_list <- fread(args[1], header=F) %>% as_tibble() %>% pull(V1)
 vcf <- fread(paste0("grep -f ",args[1]," ",args[2]), header =F) %>% as_tibble() %>% filter(V3 %in% tag_list)
-colnames(vcf) <- colnames(fread("grep -m 1 '#CHROM' [3]"))
+colnames(vcf) <- colnames(fread(paste0("grep -m 1 '#CHROM'"," ",args[2])))
 
 vcf_long <- vcf %>% gather(indiv,key,10:ncol(.))
 
