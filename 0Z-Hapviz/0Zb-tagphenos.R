@@ -5,7 +5,7 @@ library(tidyverse)
 
 args <- commandArgs(trailingOnly=TRUE)
 
-tag_list <- fread(args[1], header=F) %>% as_tibble() %>% pull(V1)
+tag_list <- fread(paste0(args[1],"_taglist.txt"), header=F) %>% as_tibble() %>% pull(V1)
 vcf <- fread(paste0("grep -f ",args[1],"_taglist.txt ",args[2]), header =F) %>% as_tibble() %>% filter(V3 %in% tag_list)
 colnames(vcf) <- colnames(fread(paste0("grep -m 1 '#CHROM'"," ",args[2])))
 
@@ -25,6 +25,6 @@ vcf_long <- vcf_long %>%
 
 output <- vcf_long %>% 
   group_by(POS,type,REF,ALT) %>% 
-  summarize(nIND=n(),avPheno=mean(V2))
+  summarize(nIND=n(),avPheno=mean(V2, na.rm = T))
 
-write_tsv(output,args[1])
+write_tsv(output,paste0(args[1],"_tags_phenosum_file3.txt"))
