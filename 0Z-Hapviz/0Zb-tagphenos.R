@@ -1,4 +1,5 @@
-##e.g. Rscript tagphenos.R taglist.txt protein_INs.vcf protein_pheno985ind.txt out
+##e.g. Rscript tagphenos.R PREFIX protein_INs.vcf protein_pheno985ind.txt
+prefix
 
 library(data.table)
 library(tidyverse)
@@ -6,7 +7,7 @@ library(tidyverse)
 args <- commandArgs(trailingOnly=TRUE)
 
 tag_list <- fread(args[1], header=F) %>% as_tibble() %>% pull(V1)
-vcf <- fread(paste0("grep -f ",args[1]," ",args[2]), header =F) %>% as_tibble() %>% filter(V3 %in% tag_list)
+vcf <- fread(paste0("grep -f ",args[1],"_taglist.txt ",args[2]), header =F) %>% as_tibble() %>% filter(V3 %in% tag_list)
 colnames(vcf) <- colnames(fread(paste0("grep -m 1 '#CHROM'"," ",args[2])))
 
 vcf_long <- vcf %>% gather(indiv,key,10:ncol(.))
@@ -27,4 +28,4 @@ output <- vcf_long %>%
   group_by(POS,type,REF,ALT) %>% 
   summarize(nIND=n(),avPheno=mean(V2))
 
-write_tsv(output,args[4])
+write_tsv(output,args[1])
