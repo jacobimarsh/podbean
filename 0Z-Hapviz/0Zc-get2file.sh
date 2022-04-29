@@ -1,6 +1,7 @@
 #!/bin/bash
-HMP=${1?Error: no hapmap file provided}
-PREFIX=${2?Error: no prefix provided}
+HMP=${1?Error: no hapmap file provided for haplotype combinations}
+VCF=${2?Error: no vcf file provided for chromosome}
+PREFIX=${3?Error: no prefix provided}
 
 echo -e "library(data.table)
 library(tidyverse)
@@ -12,12 +13,13 @@ file2 <- hmp %>%
   filter(alleles == paste(alt,alt,sep = '')) %>%
   select(haplotype,pos)
 
-write_tsv(file2,'${2}_2file.txt')" > get2file_${2}.R
+write_tsv(file2,'${3}_2file.txt')" > get2file_${3}.R
 
-Rscript get2file_${2}.R
+Rscript get2file_${3}.R
 
 
 #a lot of porting + plink tags
+
 
 
 library(tidyverse)
