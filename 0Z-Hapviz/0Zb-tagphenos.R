@@ -1,5 +1,4 @@
-##e.g. Rscript tagphenos.R PREFIX protein_INs.vcf protein_pheno985ind.txt
-prefix
+##e.g. Rscript tagphenos.R PREFIX foo.vcf pheno.txt
 
 library(data.table)
 library(tidyverse)
