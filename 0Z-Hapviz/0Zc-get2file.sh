@@ -47,10 +47,14 @@ keptSNPs <- rawpfile %>%
 
 file4_filt_in <- keptSNPs %>% separate_rows(TAGS, sep='\\\\\|') %>% select(SNP,TAGS)
 
+uniqSNP <- c(file4_filt_in\$SNP) %>% unique() 
+taglist <- rbind(c(file4_filt_in\$TAGS) %>% as.matrix(), as.matrix(uniqSNP)) %>% as.tibble()
+
 removedSNPs <- rawpfile %>% 
   filter(SNP!=grp)
 
 write_tsv(keptSNPs,'${3}_pruned_Mreps.in.txt')
 write_tsv(file4_filt_in, '${3}_4file.txt')
+write_tsv(taglist, '${3}_taglist.txt', col_names= F)
 write_tsv(removedSNPs,'${3}_pruned_Mreps.out.txt')" > get4file_${3}.R
 Rscript get4file_${3}.R
