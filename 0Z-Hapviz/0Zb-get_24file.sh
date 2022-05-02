@@ -27,6 +27,7 @@ sed -i 's/Gm//' ${3}_Mreps_sites.txt
 
 echo -e "library(tidyverse)
 library(data.table)
+library(scales)
 
 rawpfile <- fread('${3}_prepruned.tags.list') %>% 
   as_tibble() %>% 
@@ -56,5 +57,21 @@ removedSNPs <- rawpfile %>%
 write_tsv(keptSNPs,'${3}_pruned_Mreps.in.txt')
 write_tsv(file4_filt_in, '${3}_4file.txt')
 write_tsv(taglist, '${3}_taglist.txt', col_names= F)
-write_tsv(removedSNPs,'${3}_pruned_Mreps.out.txt')" > get4file_${3}.R
+write_tsv(removedSNPs,'${3}_pruned_Mreps.out.txt')
+
+ts5 <- file4_filt_in %>% mutate(SNP=as.numeric(gsub('.*_','',SNP))) %>% mutate(TAGS=as.numeric(gsub('.*_','',TAGS))) 
+
+vertranges <- ((range(ts5\$SNP)[2]-range(ts5\$SNP)[1]) / (length(unique(ts5\$SNP)))) *0.9
+
+p <- ggplot() + 
+  geom_segment(data=ts5,aes(x=TAGS,xend=TAGS,y=SNP-vertranges,yend=SNP+vertranges),size=0.2)+
+  geom_point(data=ts5,aes(x=SNP,y=SNP), pch=23,fill='red',size=2)+
+  geom_segment(data=ts5,aes(x=SNP,xend=SNP,y=SNP-vertranges,yend=SNP+vertranges),size=0.2, colour = 'red')+
+  scale_y_reverse(breaks=c(unique(ts5\$SNP))) + #, labels=c(paste('M0',1:length(unique(ts5\$SNP)),sep='')))+
+  labs(x='Position', y='Marker group') +
+  theme_minimal()
+  
+p
+
+ggsave('s${3}_posplot.pdf',p,device = 'pdf',units = 'cm',height = 9,width = 16)  " > get4file_${3}.R
 Rscript get4file_${3}.R
