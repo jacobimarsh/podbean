@@ -59,16 +59,20 @@ write_tsv(file4_filt_in, '${3}_4file.txt')
 write_tsv(taglist, '${3}_taglist.txt', col_names= F)
 write_tsv(removedSNPs,'${3}_pruned_Mreps.out.txt')
 
-ts5 <- file4_filt_in %>% mutate(SNP=as.numeric(gsub('.*_','',SNP))) %>% mutate(TAGS=as.numeric(gsub('.*_','',TAGS))) 
+ts5 <- file4_filt_in %>% 
+  mutate(SNP=as.numeric(gsub('.*_','',SNP))) %>% 
+  mutate(TAGS=as.numeric(gsub('.*_','',TAGS))) %>% 
+  group_by(SNP) %>% 
+  mutate(marker=cur_group_id())
 
 vertranges <- ((range(ts5\$SNP)[2]-range(ts5\$SNP)[1]) / (length(unique(ts5\$SNP)))) *0.9
 
 p <- ggplot() + 
-  geom_segment(data=ts5,aes(x=TAGS,xend=TAGS,y=SNP-vertranges,yend=SNP+vertranges),size=0.2)+
-  geom_point(data=ts5,aes(x=SNP,y=SNP), pch=23,fill='red',size=2)+
-  geom_segment(data=ts5,aes(x=SNP,xend=SNP,y=SNP-vertranges,yend=SNP+vertranges),size=0.2, colour = 'red')+
-  scale_y_reverse(breaks=c(unique(ts5\$SNP))) + #, labels=c(paste('M0',1:length(unique(ts5\$SNP)),sep='')))+
-  labs(x='Position', y='Marker group') +
+  geom_segment(data=ts5,aes(x=TAGS,xend=TAGS,y=marker-0.25,yend=marker+0.25),size=0.2)+
+  geom_segment(data=ts5,aes(x=SNP,xend=SNP,y=marker-0.25,yend=marker+0.25),size=0.2, colour = 'red')+
+  geom_point(data=ts5,aes(x=SNP,y=marker), pch=23,fill='red',size=2)+
+  scale_y_reverse(breaks=unique(ts5\$marker), labels=as.character(unique(ts5\$SNP)))+
+  labs(x='Position', y='Representative Marker') +
   theme_minimal()
 
 ggsave('${3}_posplot.pdf',p,device = 'pdf',units = 'cm',height = 9,width = 16)  " > get4file_${3}.R
