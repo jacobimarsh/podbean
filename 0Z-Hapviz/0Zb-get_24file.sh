@@ -3,7 +3,7 @@ HMP=${1?Error: no hapmap file provided for haplotype combinations}
 VCF=${2?Error: no vcf file provided for chromosome}
 PREFIX=${3?Error: no prefix provided}
 
-conda activate r3.6
+#conda activate r3.6
 
 echo -e "library(data.table)
 library(tidyverse)
@@ -71,5 +71,5 @@ p <- ggplot() +
   labs(x='Position', y='Marker group') +
   theme_minimal()
 
-ggsave('s${3}_posplot.pdf',p,device = 'pdf',units = 'cm',height = 9,width = 16)  " > get4file_${3}.R
+ggsave('${3}_posplot.pdf',p,device = 'pdf',units = 'cm',height = 9,width = 16)  " > get4file_${3}.R
 Rscript get4file_${3}.R
