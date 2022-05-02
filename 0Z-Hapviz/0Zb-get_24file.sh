@@ -70,8 +70,6 @@ p <- ggplot() +
   scale_y_reverse(breaks=c(unique(ts5\$SNP))) + #, labels=c(paste('M0',1:length(unique(ts5\$SNP)),sep='')))+
   labs(x='Position', y='Marker group') +
   theme_minimal()
-  
-p
 
 ggsave('s${3}_posplot.pdf',p,device = 'pdf',units = 'cm',height = 9,width = 16)  " > get4file_${3}.R
 Rscript get4file_${3}.R
