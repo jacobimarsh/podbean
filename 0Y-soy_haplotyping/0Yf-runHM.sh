@@ -262,7 +262,6 @@ generic_runHM.sh -i ../input/nohet_fin_impu_bial_16_SNP_id_filt_all.hmp.txt -gdb
 generic_runHM.sh -i ../input/nohet_fin_impu_bial_16_SNP_id_filt_all.hmp.txt -gdb ../input/my_gene_db.txt -cdb ../input/chr16_size.txt -r 75000 -m 0.9 -c 0.8 -n GmPDH1 -o ../analysis_output/
 generic_runHM.sh -i ../input/nohet_fin_impu_bial_16_SNP_id_filt_all.hmp.txt -gdb ../input/my_gene_db.txt -cdb ../input/chr16_size.txt -r 75000 -m 0.9 -c 0.9 -n GmPDH1 -o ../analysis_output/
 
-
 Rscript HMGmPDH1_MIT0.8_CT0.7.r
 Rscript HMGmPDH1_MIT0.8_CT0.6.r
 Rscript HMGmPDH1_MIT0.8_CT0.5.r
@@ -282,4 +281,26 @@ Rscript HMGmPDH1_MIT0.9_CT0.8.r
 Rscript HMGmPDH1_MIT0.9_CT0.7.r
 Rscript HMGmPDH1_MIT0.9_CT0.6.r
 Rscript HMGmPDH1_MIT0.9_CT0.5.r
-HMGmPDH1_MIT0.9_CT0.9.r
+Rscript HMGmPDH1_MIT0.9_CT0.9.r
+
+cd /scratch/pawsey0149/jmarsh1/podshatter/tagphenobox
+get_24file.sh ../glyma/haploupe/analysis_output/HMGmPDH1_MIT0.8_CT0.7.r ../glyma/snp_calling/16_SNP_id_filt_bial_all.vcf HMGmPDH1_MIT0.8_CT0.7
+get_24file.sh ../glyma/haploupe/analysis_output/HMGmPDH1_MIT0.8_CT0.6.r ../glyma/snp_calling/16_SNP_id_filt_bial_all.vcf HMGmPDH1_MIT0.8_CT0.6
+get_24file.sh ../glyma/haploupe/analysis_output/HMGmPDH1_MIT0.8_CT0.5.r ../glyma/snp_calling/16_SNP_id_filt_bial_all.vcf HMGmPDH1_MIT0.8_CT0.5
+get_24file.sh ../glyma/haploupe/analysis_output/HMGmPDH1_MIT0.7_CT0.9.r ../glyma/snp_calling/16_SNP_id_filt_bial_all.vcf HMGmPDH1_MIT0.7_CT0.9
+get_24file.sh ../glyma/haploupe/analysis_output/HMGmPDH1_MIT0.7_CT0.8.r ../glyma/snp_calling/16_SNP_id_filt_bial_all.vcf HMGmPDH1_MIT0.7_CT0.8
+get_24file.sh ../glyma/haploupe/analysis_output/HMGmPDH1_MIT0.7_CT0.7.r ../glyma/snp_calling/16_SNP_id_filt_bial_all.vcf HMGmPDH1_MIT0.7_CT0.7
+get_24file.sh ../glyma/haploupe/analysis_output/HMGmPDH1_MIT0.7_CT0.6.r ../glyma/snp_calling/16_SNP_id_filt_bial_all.vcf HMGmPDH1_MIT0.7_CT0.6
+get_24file.sh ../glyma/haploupe/analysis_output/HMGmPDH1_MIT0.7_CT0.5.r ../glyma/snp_calling/16_SNP_id_filt_bial_all.vcf HMGmPDH1_MIT0.7_CT0.5
+get_24file.sh ../glyma/haploupe/analysis_output/HMGmPDH1_indep_MIT0.8_CT0.8.r ../glyma/snp_calling/16_SNP_id_filt_bial_all.vcf HMGmPDH1_indep_MIT0.8_CT0.8
+get_24file.sh ../glyma/haploupe/analysis_output/HMGmPDH1_indep_MIT0.8_CT0.7.r ../glyma/snp_calling/16_SNP_id_filt_bial_all.vcf HMGmPDH1_indep_MIT0.8_CT0.7
+get_24file.sh ../glyma/haploupe/analysis_output/HMGmPDH1_indep_MIT0.8_CT0.6.r ../glyma/snp_calling/16_SNP_id_filt_bial_all.vcf HMGmPDH1_indep_MIT0.8_CT0.6
+get_24file.sh ../glyma/haploupe/analysis_output/HMGmPDH1_indep_MIT0.8_CT0.5.r ../glyma/snp_calling/16_SNP_id_filt_bial_all.vcf HMGmPDH1_indep_MIT0.8_CT0.5
+get_24file.sh ../glyma/haploupe/analysis_output/HMGmPDH1_MIT0.8_CT0.9.r ../glyma/snp_calling/16_SNP_id_filt_bial_all.vcf HMGmPDH1_MIT0.8_CT0.9
+get_24file.sh ../glyma/haploupe/analysis_output/HMGmPDH1_MIT0.8_CT0.8.r ../glyma/snp_calling/16_SNP_id_filt_bial_all.vcf HMGmPDH1_MIT0.8_CT0.8
+get_24file.sh ../glyma/haploupe/analysis_output/HMGmPDH1_indep_MIT0.8_CT0.9.r ../glyma/snp_calling/16_SNP_id_filt_bial_all.vcf HMGmPDH1_indep_MIT0.8_CT0.9
+get_24file.sh ../glyma/haploupe/analysis_output/HMGmPDH1_MIT0.9_CT0.8.r ../glyma/snp_calling/16_SNP_id_filt_bial_all.vcf HMGmPDH1_MIT0.9_CT0.8
+get_24file.sh ../glyma/haploupe/analysis_output/HMGmPDH1_MIT0.9_CT0.7.r ../glyma/snp_calling/16_SNP_id_filt_bial_all.vcf HMGmPDH1_MIT0.9_CT0.7
+get_24file.sh ../glyma/haploupe/analysis_output/HMGmPDH1_MIT0.9_CT0.6.r ../glyma/snp_calling/16_SNP_id_filt_bial_all.vcf HMGmPDH1_MIT0.9_CT0.6
+get_24file.sh ../glyma/haploupe/analysis_output/HMGmPDH1_MIT0.9_CT0.5.r ../glyma/snp_calling/16_SNP_id_filt_bial_all.vcf HMGmPDH1_MIT0.9_CT0.5
+get_24file.sh ../glyma/haploupe/analysis_output/HMGmPDH1_MIT0.9_CT0.9.r ../glyma/snp_calling/16_SNP_id_filt_bial_all.vcf HMGmPDH1_MIT0.9_CT0.9
