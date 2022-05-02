@@ -233,3 +233,31 @@ generic_runHM.sh -i ../input/indep1000_5_0.8_nohet_prefin_impu_bial_16_SNP_id_fi
 generic_runHM.sh -i ../input/indep1000_5_0.8_nohet_prefin_impu_bial_16_SNP_id_filt_all.hmp.txt -gdb ../input/my_gene_db.txt -cdb ../input/chr16_size.txt -r 50000 -m 0.8 -c 0.7 -n Gm16_301_302_indep -o ../analysis_output/
 generic_runHM.sh -i ../input/indep1000_5_0.8_nohet_prefin_impu_bial_16_SNP_id_filt_all.hmp.txt -gdb ../input/my_gene_db.txt -cdb ../input/chr16_size.txt -r 50000 -m 0.8 -c 0.8 -n Gm16_301_302_indep -o ../analysis_output/
 generic_runHM.sh -i ../input/indep1000_5_0.8_nohet_prefin_impu_bial_16_SNP_id_filt_all.hmp.txt -gdb ../input/my_gene_db.txt -cdb ../input/chr16_size.txt -r 50000 -m 0.8 -c 0.9 -n Gm16_301_302_indep -o ../analysis_output/
+
+########## AROUND PDH1
+
+Gm16_25kbflank
+
+generic_runHM.sh -i ../input/nohet_fin_impu_bial_16_SNP_id_filt_all.hmp.txt -gdb ../input/my_gene_db.txt -cdb ../input/chr16_size.txt -r 75000 -m 0.7 -c 0.5 -n GmPDH1 -o ../analysis_output/
+generic_runHM.sh -i ../input/nohet_fin_impu_bial_16_SNP_id_filt_all.hmp.txt -gdb ../input/my_gene_db.txt -cdb ../input/chr16_size.txt -r 75000 -m 0.7 -c 0.6 -n GmPDH1 -o ../analysis_output/
+generic_runHM.sh -i ../input/nohet_fin_impu_bial_16_SNP_id_filt_all.hmp.txt -gdb ../input/my_gene_db.txt -cdb ../input/chr16_size.txt -r 75000 -m 0.7 -c 0.7 -n GmPDH1 -o ../analysis_output/
+generic_runHM.sh -i ../input/nohet_fin_impu_bial_16_SNP_id_filt_all.hmp.txt -gdb ../input/my_gene_db.txt -cdb ../input/chr16_size.txt -r 75000 -m 0.7 -c 0.8 -n GmPDH1 -o ../analysis_output/
+generic_runHM.sh -i ../input/nohet_fin_impu_bial_16_SNP_id_filt_all.hmp.txt -gdb ../input/my_gene_db.txt -cdb ../input/chr16_size.txt -r 75000 -m 0.7 -c 0.9 -n GmPDH1 -o ../analysis_output/
+
+generic_runHM.sh -i ../input/nohet_fin_impu_bial_16_SNP_id_filt_all.hmp.txt -gdb ../input/my_gene_db.txt -cdb ../input/chr16_size.txt -r 75000 -m 0.8 -c 0.5 -n GmPDH1 -o ../analysis_output/
+generic_runHM.sh -i ../input/nohet_fin_impu_bial_16_SNP_id_filt_all.hmp.txt -gdb ../input/my_gene_db.txt -cdb ../input/chr16_size.txt -r 75000 -m 0.8 -c 0.6 -n GmPDH1 -o ../analysis_output/
+generic_runHM.sh -i ../input/nohet_fin_impu_bial_16_SNP_id_filt_all.hmp.txt -gdb ../input/my_gene_db.txt -cdb ../input/chr16_size.txt -r 75000 -m 0.8 -c 0.7 -n GmPDH1 -o ../analysis_output/
+generic_runHM.sh -i ../input/nohet_fin_impu_bial_16_SNP_id_filt_all.hmp.txt -gdb ../input/my_gene_db.txt -cdb ../input/chr16_size.txt -r 75000 -m 0.8 -c 0.8 -n GmPDH1 -o ../analysis_output/
+generic_runHM.sh -i ../input/nohet_fin_impu_bial_16_SNP_id_filt_all.hmp.txt -gdb ../input/my_gene_db.txt -cdb ../input/chr16_size.txt -r 75000 -m 0.8 -c 0.9 -n GmPDH1 -o ../analysis_output/
+
+generic_runHM.sh -i ../input/indep1000_5_0.8_nohet_prefin_impu_bial_16_SNP_id_filt_all.hmp.txt -gdb ../input/my_gene_db.txt -cdb ../input/chr16_size.txt -r 75000 -m 0.8 -c 0.5 -n GmPDH1_indep -o ../analysis_output/
+generic_runHM.sh -i ../input/indep1000_5_0.8_nohet_prefin_impu_bial_16_SNP_id_filt_all.hmp.txt -gdb ../input/my_gene_db.txt -cdb ../input/chr16_size.txt -r 75000 -m 0.8 -c 0.6 -n GmPDH1_indep -o ../analysis_output/
+generic_runHM.sh -i ../input/indep1000_5_0.8_nohet_prefin_impu_bial_16_SNP_id_filt_all.hmp.txt -gdb ../input/my_gene_db.txt -cdb ../input/chr16_size.txt -r 75000 -m 0.8 -c 0.7 -n GmPDH1_indep -o ../analysis_output/
+generic_runHM.sh -i ../input/indep1000_5_0.8_nohet_prefin_impu_bial_16_SNP_id_filt_all.hmp.txt -gdb ../input/my_gene_db.txt -cdb ../input/chr16_size.txt -r 75000 -m 0.8 -c 0.8 -n GmPDH1_indep -o ../analysis_output/
+generic_runHM.sh -i ../input/indep1000_5_0.8_nohet_prefin_impu_bial_16_SNP_id_filt_all.hmp.txt -gdb ../input/my_gene_db.txt -cdb ../input/chr16_size.txt -r 75000 -m 0.8 -c 0.9 -n GmPDH1_indep -o ../analysis_output/
+
+generic_runHM.sh -i ../input/nohet_fin_impu_bial_16_SNP_id_filt_all.hmp.txt -gdb ../input/my_gene_db.txt -cdb ../input/chr16_size.txt -r 75000 -m 0.9 -c 0.5 -n GmPDH1 -o ../analysis_output/
+generic_runHM.sh -i ../input/nohet_fin_impu_bial_16_SNP_id_filt_all.hmp.txt -gdb ../input/my_gene_db.txt -cdb ../input/chr16_size.txt -r 75000 -m 0.9 -c 0.6 -n GmPDH1 -o ../analysis_output/
+generic_runHM.sh -i ../input/nohet_fin_impu_bial_16_SNP_id_filt_all.hmp.txt -gdb ../input/my_gene_db.txt -cdb ../input/chr16_size.txt -r 75000 -m 0.9 -c 0.7 -n GmPDH1 -o ../analysis_output/
+generic_runHM.sh -i ../input/nohet_fin_impu_bial_16_SNP_id_filt_all.hmp.txt -gdb ../input/my_gene_db.txt -cdb ../input/chr16_size.txt -r 75000 -m 0.9 -c 0.8 -n GmPDH1 -o ../analysis_output/
+generic_runHM.sh -i ../input/nohet_fin_impu_bial_16_SNP_id_filt_all.hmp.txt -gdb ../input/my_gene_db.txt -cdb ../input/chr16_size.txt -r 75000 -m 0.9 -c 0.9 -n GmPDH1 -o ../analysis_output/
