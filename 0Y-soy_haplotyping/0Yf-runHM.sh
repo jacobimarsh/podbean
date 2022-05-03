@@ -284,23 +284,22 @@ Rscript HMGmPDH1_MIT0.9_CT0.5.r
 Rscript HMGmPDH1_MIT0.9_CT0.9.r
 
 cd /scratch/pawsey0149/jmarsh1/podshatter/tagphenobox
-get_24file.sh ../glyma/haploupe/analysis_output/HMGmPDH1_MIT0.8_CT0.7.r ../glyma/snp_calling/16_SNP_id_filt_bial_all.vcf HMGmPDH1_MIT0.8_CT0.7
-get_24file.sh ../glyma/haploupe/analysis_output/HMGmPDH1_MIT0.8_CT0.6.r ../glyma/snp_calling/16_SNP_id_filt_bial_all.vcf HMGmPDH1_MIT0.8_CT0.6
-get_24file.sh ../glyma/haploupe/analysis_output/HMGmPDH1_MIT0.8_CT0.5.r ../glyma/snp_calling/16_SNP_id_filt_bial_all.vcf HMGmPDH1_MIT0.8_CT0.5
-get_24file.sh ../glyma/haploupe/analysis_output/HMGmPDH1_MIT0.7_CT0.9.r ../glyma/snp_calling/16_SNP_id_filt_bial_all.vcf HMGmPDH1_MIT0.7_CT0.9
-get_24file.sh ../glyma/haploupe/analysis_output/HMGmPDH1_MIT0.7_CT0.8.r ../glyma/snp_calling/16_SNP_id_filt_bial_all.vcf HMGmPDH1_MIT0.7_CT0.8
-get_24file.sh ../glyma/haploupe/analysis_output/HMGmPDH1_MIT0.7_CT0.7.r ../glyma/snp_calling/16_SNP_id_filt_bial_all.vcf HMGmPDH1_MIT0.7_CT0.7
-get_24file.sh ../glyma/haploupe/analysis_output/HMGmPDH1_MIT0.7_CT0.6.r ../glyma/snp_calling/16_SNP_id_filt_bial_all.vcf HMGmPDH1_MIT0.7_CT0.6
-get_24file.sh ../glyma/haploupe/analysis_output/HMGmPDH1_MIT0.7_CT0.5.r ../glyma/snp_calling/16_SNP_id_filt_bial_all.vcf HMGmPDH1_MIT0.7_CT0.5
-get_24file.sh ../glyma/haploupe/analysis_output/HMGmPDH1_indep_MIT0.8_CT0.8.r ../glyma/snp_calling/16_SNP_id_filt_bial_all.vcf HMGmPDH1_indep_MIT0.8_CT0.8
-get_24file.sh ../glyma/haploupe/analysis_output/HMGmPDH1_indep_MIT0.8_CT0.7.r ../glyma/snp_calling/16_SNP_id_filt_bial_all.vcf HMGmPDH1_indep_MIT0.8_CT0.7
-get_24file.sh ../glyma/haploupe/analysis_output/HMGmPDH1_indep_MIT0.8_CT0.6.r ../glyma/snp_calling/16_SNP_id_filt_bial_all.vcf HMGmPDH1_indep_MIT0.8_CT0.6
-get_24file.sh ../glyma/haploupe/analysis_output/HMGmPDH1_indep_MIT0.8_CT0.5.r ../glyma/snp_calling/16_SNP_id_filt_bial_all.vcf HMGmPDH1_indep_MIT0.8_CT0.5
-get_24file.sh ../glyma/haploupe/analysis_output/HMGmPDH1_MIT0.8_CT0.9.r ../glyma/snp_calling/16_SNP_id_filt_bial_all.vcf HMGmPDH1_MIT0.8_CT0.9
-get_24file.sh ../glyma/haploupe/analysis_output/HMGmPDH1_MIT0.8_CT0.8.r ../glyma/snp_calling/16_SNP_id_filt_bial_all.vcf HMGmPDH1_MIT0.8_CT0.8
-get_24file.sh ../glyma/haploupe/analysis_output/HMGmPDH1_indep_MIT0.8_CT0.9.r ../glyma/snp_calling/16_SNP_id_filt_bial_all.vcf HMGmPDH1_indep_MIT0.8_CT0.9
-get_24file.sh ../glyma/haploupe/analysis_output/HMGmPDH1_MIT0.9_CT0.8.r ../glyma/snp_calling/16_SNP_id_filt_bial_all.vcf HMGmPDH1_MIT0.9_CT0.8
-get_24file.sh ../glyma/haploupe/analysis_output/HMGmPDH1_MIT0.9_CT0.7.r ../glyma/snp_calling/16_SNP_id_filt_bial_all.vcf HMGmPDH1_MIT0.9_CT0.7
-get_24file.sh ../glyma/haploupe/analysis_output/HMGmPDH1_MIT0.9_CT0.6.r ../glyma/snp_calling/16_SNP_id_filt_bial_all.vcf HMGmPDH1_MIT0.9_CT0.6
-get_24file.sh ../glyma/haploupe/analysis_output/HMGmPDH1_MIT0.9_CT0.5.r ../glyma/snp_calling/16_SNP_id_filt_bial_all.vcf HMGmPDH1_MIT0.9_CT0.5
-get_24file.sh ../glyma/haploupe/analysis_output/HMGmPDH1_MIT0.9_CT0.9.r ../glyma/snp_calling/16_SNP_id_filt_bial_all.vcf HMGmPDH1_MIT0.9_CT0.9
+get_24file.sh ../glyma/haploupe/analysis_output/HMGmPDH1_MIT0.8_CT0.7/Haplotypes.hmp.txt ../glyma/snp_calling/16_SNP_id_filt_bial_all.vcf HMGmPDH1_MIT0.8_CT0.7
+get_24file.sh ../glyma/haploupe/analysis_output/HMGmPDH1_MIT0.8_CT0.6/Haplotypes.hmp.txt ../glyma/snp_calling/16_SNP_id_filt_bial_all.vcf HMGmPDH1_MIT0.8_CT0.6
+get_24file.sh ../glyma/haploupe/analysis_output/HMGmPDH1_MIT0.8_CT0.5/Haplotypes.hmp.txt ../glyma/snp_calling/16_SNP_id_filt_bial_all.vcf HMGmPDH1_MIT0.8_CT0.5
+get_24file.sh ../glyma/haploupe/analysis_output/HMGmPDH1_MIT0.7_CT0.9/Haplotypes.hmp.txt ../glyma/snp_calling/16_SNP_id_filt_bial_all.vcf HMGmPDH1_MIT0.7_CT0.9
+get_24file.sh ../glyma/haploupe/analysis_output/HMGmPDH1_MIT0.7_CT0.8/Haplotypes.hmp.txt ../glyma/snp_calling/16_SNP_id_filt_bial_all.vcf HMGmPDH1_MIT0.7_CT0.8
+get_24file.sh ../glyma/haploupe/analysis_output/HMGmPDH1_MIT0.7_CT0.7/Haplotypes.hmp.txt ../glyma/snp_calling/16_SNP_id_filt_bial_all.vcf HMGmPDH1_MIT0.7_CT0.7
+get_24file.sh ../glyma/haploupe/analysis_output/HMGmPDH1_MIT0.7_CT0.6/Haplotypes.hmp.txt ../glyma/snp_calling/16_SNP_id_filt_bial_all.vcf HMGmPDH1_MIT0.7_CT0.6
+get_24file.sh ../glyma/haploupe/analysis_output/HMGmPDH1_MIT0.7_CT0.5/Haplotypes.hmp.txt ../glyma/snp_calling/16_SNP_id_filt_bial_all.vcf HMGmPDH1_MIT0.7_CT0.5
+get_24file.sh ../glyma/haploupe/analysis_output/HMGmPDH1_indep_MIT0.8_CT0.8/Haplotypes.hmp.txt ../glyma/snp_calling/16_SNP_id_filt_bial_all.vcf HMGmPDH1_indep_MIT0.8_CT0.8
+get_24file.sh ../glyma/haploupe/analysis_output/HMGmPDH1_indep_MIT0.8_CT0.7/Haplotypes.hmp.txt ../glyma/snp_calling/16_SNP_id_filt_bial_all.vcf HMGmPDH1_indep_MIT0.8_CT0.7
+get_24file.sh ../glyma/haploupe/analysis_output/HMGmPDH1_indep_MIT0.8_CT0.6/Haplotypes.hmp.txt ../glyma/snp_calling/16_SNP_id_filt_bial_all.vcf HMGmPDH1_indep_MIT0.8_CT0.6
+get_24file.sh ../glyma/haploupe/analysis_output/HMGmPDH1_indep_MIT0.8_CT0.5/Haplotypes.hmp.txt ../glyma/snp_calling/16_SNP_id_filt_bial_all.vcf HMGmPDH1_indep_MIT0.8_CT0.5
+get_24file.sh ../glyma/haploupe/analysis_output/HMGmPDH1_MIT0.8_CT0.9/Haplotypes.hmp.txt ../glyma/snp_calling/16_SNP_id_filt_bial_all.vcf HMGmPDH1_MIT0.8_CT0.9
+get_24file.sh ../glyma/haploupe/analysis_output/HMGmPDH1_MIT0.8_CT0.8/Haplotypes.hmp.txt ../glyma/snp_calling/16_SNP_id_filt_bial_all.vcf HMGmPDH1_MIT0.8_CT0.8
+wget_24file.sh ../glyma/haploupe/analysis_output/HMGmPDH1_MIT0.9_CT0.8/Haplotypes.hmp.txt ../glyma/snp_calling/16_SNP_id_filt_bial_all.vcf HMGmPDH1_MIT0.9_CT0.8
+get_24file.sh ../glyma/haploupe/analysis_output/HMGmPDH1_MIT0.9_CT0.7/Haplotypes.hmp.txt ../glyma/snp_calling/16_SNP_id_filt_bial_all.vcf HMGmPDH1_MIT0.9_CT0.7
+get_24file.sh ../glyma/haploupe/analysis_output/HMGmPDH1_MIT0.9_CT0.6/Haplotypes.hmp.txt ../glyma/snp_calling/16_SNP_id_filt_bial_all.vcf HMGmPDH1_MIT0.9_CT0.6
+get_24file.sh ../glyma/haploupe/analysis_output/HMGmPDH1_MIT0.9_CT0.5/Haplotypes.hmp.txt ../glyma/snp_calling/16_SNP_id_filt_bial_all.vcf HMGmPDH1_MIT0.9_CT0.5
+get_24file.sh ../glyma/haploupe/analysis_output/HMGmPDH1_MIT0.9_CT0.9/Haplotypes.hmp.txt ../glyma/snp_calling/16_SNP_id_filt_bial_all.vcf HMGmPDH1_MIT0.9_CT0.9
