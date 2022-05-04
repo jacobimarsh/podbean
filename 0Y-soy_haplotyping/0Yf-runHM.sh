@@ -303,3 +303,73 @@ get_24file.sh ../glyma/haploupe/analysis_output/HMGmPDH1_MIT0.9_CT0.7/Haplotypes
 get_24file.sh ../glyma/haploupe/analysis_output/HMGmPDH1_MIT0.9_CT0.6/Haplotypes.hmp.txt ../glyma/snp_calling/16_SNP_id_filt_bial_all.vcf HMGmPDH1_MIT0.9_CT0.6
 get_24file.sh ../glyma/haploupe/analysis_output/HMGmPDH1_MIT0.9_CT0.5/Haplotypes.hmp.txt ../glyma/snp_calling/16_SNP_id_filt_bial_all.vcf HMGmPDH1_MIT0.9_CT0.5
 get_24file.sh ../glyma/haploupe/analysis_output/HMGmPDH1_MIT0.9_CT0.9/Haplotypes.hmp.txt ../glyma/snp_calling/16_SNP_id_filt_bial_all.vcf HMGmPDH1_MIT0.9_CT0.9
+
+
+#########GmSCL15
+
+generic_runHM.sh -i ../input/nohet_prefin_impu_bial_16_SNP_id_filt_all.hmp.txt -gdb ../input/my_gene_db.txt -cdb ../input/chr16_size.txt -r 50000 -m 0.7 -c 0.5 -n GmSCL15 -o ../analysis_output/
+generic_runHM.sh -i ../input/nohet_prefin_impu_bial_16_SNP_id_filt_all.hmp.txt -gdb ../input/my_gene_db.txt -cdb ../input/chr16_size.txt -r 50000 -m 0.7 -c 0.6 -n GmSCL15 -o ../analysis_output/
+generic_runHM.sh -i ../input/nohet_prefin_impu_bial_16_SNP_id_filt_all.hmp.txt -gdb ../input/my_gene_db.txt -cdb ../input/chr16_size.txt -r 50000 -m 0.7 -c 0.7 -n GmSCL15 -o ../analysis_output/
+generic_runHM.sh -i ../input/nohet_prefin_impu_bial_16_SNP_id_filt_all.hmp.txt -gdb ../input/my_gene_db.txt -cdb ../input/chr16_size.txt -r 50000 -m 0.7 -c 0.8 -n GmSCL15 -o ../analysis_output/
+generic_runHM.sh -i ../input/nohet_prefin_impu_bial_16_SNP_id_filt_all.hmp.txt -gdb ../input/my_gene_db.txt -cdb ../input/chr16_size.txt -r 50000 -m 0.7 -c 0.9 -n GmSCL15 -o ../analysis_output/
+
+generic_runHM.sh -i ../input/nohet_prefin_impu_bial_16_SNP_id_filt_all.hmp.txt -gdb ../input/my_gene_db.txt -cdb ../input/chr16_size.txt -r 50000 -m 0.8 -c 0.5 -n GmSCL15 -o ../analysis_output/
+generic_runHM.sh -i ../input/nohet_prefin_impu_bial_16_SNP_id_filt_all.hmp.txt -gdb ../input/my_gene_db.txt -cdb ../input/chr16_size.txt -r 50000 -m 0.8 -c 0.6 -n GmSCL15 -o ../analysis_output/
+generic_runHM.sh -i ../input/nohet_prefin_impu_bial_16_SNP_id_filt_all.hmp.txt -gdb ../input/my_gene_db.txt -cdb ../input/chr16_size.txt -r 50000 -m 0.8 -c 0.7 -n GmSCL15 -o ../analysis_output/
+generic_runHM.sh -i ../input/nohet_prefin_impu_bial_16_SNP_id_filt_all.hmp.txt -gdb ../input/my_gene_db.txt -cdb ../input/chr16_size.txt -r 50000 -m 0.8 -c 0.8 -n GmSCL15 -o ../analysis_output/
+generic_runHM.sh -i ../input/nohet_prefin_impu_bial_16_SNP_id_filt_all.hmp.txt -gdb ../input/my_gene_db.txt -cdb ../input/chr16_size.txt -r 50000 -m 0.8 -c 0.9 -n GmSCL15 -o ../analysis_output/
+
+generic_runHM.sh -i ../input/indep1000_5_0.8_nohet_prefin_impu_bial_16_SNP_id_filt_all.hmp.txt -gdb ../input/my_gene_db.txt -cdb ../input/chr16_size.txt -r 50000 -m 0.8 -c 0.5 -n GmSCL15_indep -o ../analysis_output/
+generic_runHM.sh -i ../input/indep1000_5_0.8_nohet_prefin_impu_bial_16_SNP_id_filt_all.hmp.txt -gdb ../input/my_gene_db.txt -cdb ../input/chr16_size.txt -r 50000 -m 0.8 -c 0.6 -n GmSCL15_indep -o ../analysis_output/
+generic_runHM.sh -i ../input/indep1000_5_0.8_nohet_prefin_impu_bial_16_SNP_id_filt_all.hmp.txt -gdb ../input/my_gene_db.txt -cdb ../input/chr16_size.txt -r 50000 -m 0.8 -c 0.7 -n GmSCL15_indep -o ../analysis_output/
+generic_runHM.sh -i ../input/indep1000_5_0.8_nohet_prefin_impu_bial_16_SNP_id_filt_all.hmp.txt -gdb ../input/my_gene_db.txt -cdb ../input/chr16_size.txt -r 50000 -m 0.8 -c 0.8 -n GmSCL15_indep -o ../analysis_output/
+generic_runHM.sh -i ../input/indep1000_5_0.8_nohet_prefin_impu_bial_16_SNP_id_filt_all.hmp.txt -gdb ../input/my_gene_db.txt -cdb ../input/chr16_size.txt -r 50000 -m 0.8 -c 0.9 -n GmSCL15_indep -o ../analysis_output/
+
+generic_runHM.sh -i ../input/nohet_prefin_impu_bial_16_SNP_id_filt_all.hmp.txt -gdb ../input/my_gene_db.txt -cdb ../input/chr16_size.txt -r 50000 -m 0.9 -c 0.5 -n GmSCL15 -o ../analysis_output/
+generic_runHM.sh -i ../input/nohet_prefin_impu_bial_16_SNP_id_filt_all.hmp.txt -gdb ../input/my_gene_db.txt -cdb ../input/chr16_size.txt -r 50000 -m 0.9 -c 0.6 -n GmSCL15 -o ../analysis_output/
+generic_runHM.sh -i ../input/nohet_prefin_impu_bial_16_SNP_id_filt_all.hmp.txt -gdb ../input/my_gene_db.txt -cdb ../input/chr16_size.txt -r 50000 -m 0.9 -c 0.7 -n GmSCL15 -o ../analysis_output/
+generic_runHM.sh -i ../input/nohet_prefin_impu_bial_16_SNP_id_filt_all.hmp.txt -gdb ../input/my_gene_db.txt -cdb ../input/chr16_size.txt -r 50000 -m 0.9 -c 0.8 -n GmSCL15 -o ../analysis_output/
+generic_runHM.sh -i ../input/nohet_prefin_impu_bial_16_SNP_id_filt_all.hmp.txt -gdb ../input/my_gene_db.txt -cdb ../input/chr16_size.txt -r 50000 -m 0.9 -c 0.9 -n GmSCL15 -o ../analysis_output/
+
+Rscript HMGmSCL15_MIT0.8_CT0.7.r
+Rscript HMGmSCL15_MIT0.8_CT0.6.r
+Rscript HMGmSCL15_MIT0.8_CT0.5.r
+Rscript HMGmSCL15_MIT0.7_CT0.9.r
+Rscript HMGmSCL15_MIT0.7_CT0.8.r
+Rscript HMGmSCL15_MIT0.7_CT0.7.r
+Rscript HMGmSCL15_MIT0.7_CT0.6.r
+Rscript HMGmSCL15_MIT0.7_CT0.5.r
+Rscript HMGmSCL15_indep_MIT0.8_CT0.9.r
+Rscript HMGmSCL15_indep_MIT0.8_CT0.8.r
+Rscript HMGmSCL15_indep_MIT0.8_CT0.7.r
+Rscript HMGmSCL15_indep_MIT0.8_CT0.6.r
+Rscript HMGmSCL15_indep_MIT0.8_CT0.5.r
+Rscript HMGmSCL15_MIT0.8_CT0.9.r
+Rscript HMGmSCL15_MIT0.8_CT0.8.r
+Rscript HMGmSCL15_MIT0.9_CT0.8.r
+Rscript HMGmSCL15_MIT0.9_CT0.7.r
+Rscript HMGmSCL15_MIT0.9_CT0.6.r
+Rscript HMGmSCL15_MIT0.9_CT0.5.r
+Rscript HMGmSCL15_MIT0.9_CT0.9.r
+
+cd /scratch/pawsey0149/jmarsh1/podshatter/tagphenobox
+get_24file.sh ../glyma/haploupe/analysis_output/HMGmSCL15_MIT0.8_CT0.7/Haplotypes.hmp.txt ../glyma/snp_calling/16_SNP_id_filt_bial_all.vcf HMGmSCL15_MIT0.8_CT0.7
+get_24file.sh ../glyma/haploupe/analysis_output/HMGmSCL15_MIT0.8_CT0.6/Haplotypes.hmp.txt ../glyma/snp_calling/16_SNP_id_filt_bial_all.vcf HMGmSCL15_MIT0.8_CT0.6
+get_24file.sh ../glyma/haploupe/analysis_output/HMGmSCL15_MIT0.8_CT0.5/Haplotypes.hmp.txt ../glyma/snp_calling/16_SNP_id_filt_bial_all.vcf HMGmSCL15_MIT0.8_CT0.5
+get_24file.sh ../glyma/haploupe/analysis_output/HMGmSCL15_MIT0.7_CT0.9/Haplotypes.hmp.txt ../glyma/snp_calling/16_SNP_id_filt_bial_all.vcf HMGmSCL15_MIT0.7_CT0.9
+get_24file.sh ../glyma/haploupe/analysis_output/HMGmSCL15_MIT0.7_CT0.8/Haplotypes.hmp.txt ../glyma/snp_calling/16_SNP_id_filt_bial_all.vcf HMGmSCL15_MIT0.7_CT0.8
+get_24file.sh ../glyma/haploupe/analysis_output/HMGmSCL15_MIT0.7_CT0.7/Haplotypes.hmp.txt ../glyma/snp_calling/16_SNP_id_filt_bial_all.vcf HMGmSCL15_MIT0.7_CT0.7
+get_24file.sh ../glyma/haploupe/analysis_output/HMGmSCL15_MIT0.7_CT0.6/Haplotypes.hmp.txt ../glyma/snp_calling/16_SNP_id_filt_bial_all.vcf HMGmSCL15_MIT0.7_CT0.6
+get_24file.sh ../glyma/haploupe/analysis_output/HMGmSCL15_MIT0.7_CT0.5/Haplotypes.hmp.txt ../glyma/snp_calling/16_SNP_id_filt_bial_all.vcf HMGmSCL15_MIT0.7_CT0.5
+get_24file.sh ../glyma/haploupe/analysis_output/HMGmSCL15_indep_MIT0.8_CT0.9/Haplotypes.hmp.txt ../glyma/snp_calling/16_SNP_id_filt_bial_all.vcf HMGmSCL15_indep_MIT0.8_CT0.9
+get_24file.sh ../glyma/haploupe/analysis_output/HMGmSCL15_indep_MIT0.8_CT0.8/Haplotypes.hmp.txt ../glyma/snp_calling/16_SNP_id_filt_bial_all.vcf HMGmSCL15_indep_MIT0.8_CT0.8
+get_24file.sh ../glyma/haploupe/analysis_output/HMGmSCL15_indep_MIT0.8_CT0.7/Haplotypes.hmp.txt ../glyma/snp_calling/16_SNP_id_filt_bial_all.vcf HMGmSCL15_indep_MIT0.8_CT0.7
+get_24file.sh ../glyma/haploupe/analysis_output/HMGmSCL15_indep_MIT0.8_CT0.6/Haplotypes.hmp.txt ../glyma/snp_calling/16_SNP_id_filt_bial_all.vcf HMGmSCL15_indep_MIT0.8_CT0.6
+get_24file.sh ../glyma/haploupe/analysis_output/HMGmSCL15_indep_MIT0.8_CT0.5/Haplotypes.hmp.txt ../glyma/snp_calling/16_SNP_id_filt_bial_all.vcf HMGmSCL15_indep_MIT0.8_CT0.5
+get_24file.sh ../glyma/haploupe/analysis_output/HMGmSCL15_MIT0.8_CT0.9/Haplotypes.hmp.txt ../glyma/snp_calling/16_SNP_id_filt_bial_all.vcf HMGmSCL15_MIT0.8_CT0.9
+get_24file.sh ../glyma/haploupe/analysis_output/HMGmSCL15_MIT0.8_CT0.8/Haplotypes.hmp.txt ../glyma/snp_calling/16_SNP_id_filt_bial_all.vcf HMGmSCL15_MIT0.8_CT0.8
+get_24file.sh ../glyma/haploupe/analysis_output/HMGmSCL15_MIT0.9_CT0.8/Haplotypes.hmp.txt ../glyma/snp_calling/16_SNP_id_filt_bial_all.vcf HMGmSCL15_MIT0.9_CT0.8
+get_24file.sh ../glyma/haploupe/analysis_output/HMGmSCL15_MIT0.9_CT0.7/Haplotypes.hmp.txt ../glyma/snp_calling/16_SNP_id_filt_bial_all.vcf HMGmSCL15_MIT0.9_CT0.7
+get_24file.sh ../glyma/haploupe/analysis_output/HMGmSCL15_MIT0.9_CT0.6/Haplotypes.hmp.txt ../glyma/snp_calling/16_SNP_id_filt_bial_all.vcf HMGmSCL15_MIT0.9_CT0.6
+get_24file.sh ../glyma/haploupe/analysis_output/HMGmSCL15_MIT0.9_CT0.5/Haplotypes.hmp.txt ../glyma/snp_calling/16_SNP_id_filt_bial_all.vcf HMGmSCL15_MIT0.9_CT0.5
+get_24file.sh ../glyma/haploupe/analysis_output/HMGmSCL15_MIT0.9_CT0.9/Haplotypes.hmp.txt ../glyma/snp_calling/16_SNP_id_filt_bial_all.vcf HMGmSCL15_MIT0.9_CT0.9
