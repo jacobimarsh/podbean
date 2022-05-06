@@ -1,3 +1,4 @@
+##Rscript tagphenos.R HMGm16_301_302_C0.6_MIT0.8 ../glyma/snp_calling/16_SNP_id_filt_all.vcf ../clustreebox/late_shatter.txt
 ##e.g. Rscript tagphenos.R PREFIX foo.vcf pheno.txt
 
 library(data.table)
@@ -19,7 +20,7 @@ type <- tibble(type=c('ref','alt',rep('het',2),rep('het_miss',4),'miss'),
 
 
 vcf_long <- vcf_long %>% 
-  left_join(pheno, by=c('indiv'='V1')) %>% 
+  left_join(pheno, by=c('indiv'='ID')) %>% 
   left_join(type) 
 
 
