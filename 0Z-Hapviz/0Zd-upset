@@ -1,1 +1,4 @@
+##for HMGmPDH1_MIT0.8_CT0.7
+
+Rscript tagphenos.R HMGm16_301_302_C0.6_MIT0.8 ../glyma/snp_calling/16_SNP_id_filt_all.vcf ../clustreebox/late_shatter.txt
 
