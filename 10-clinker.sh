@@ -11,4 +11,4 @@ python3 gff_to_genbank.py glyma_region.gff3 Gm16.fna
 #run clinker
 conda activate clinker
 unset PYTHONPATH
-clinker -f *.genbank
+clinker -ufo -j 15 -p pdh1_added -f *.gb
