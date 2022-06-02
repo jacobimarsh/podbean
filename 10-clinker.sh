@@ -9,4 +9,5 @@ conda activate py3
 python3 gff_to_genbank.py glyma_region.gff3 Gm16.fna
 
 #run clinker
+conda activate clinker
 clinker -f *.genbank
