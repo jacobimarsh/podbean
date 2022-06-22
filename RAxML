@@ -1,0 +1,28 @@
+#Run Augustus (v3.4.0) protein prediction on genomic regions with flanks which had BLAST hits from pdh1 query (muscle_flanks.fa)
+augustus --protein=on --species=arabidopsis muscle_flanks.fa > soybean.gff 
+
+#Get protein sequences from Augustus output GFF (-> rename_AUG.aa)
+getAnnoFasta.pl soybean.gff
+
+#Align with MUSCLE (v3.8.1551)
+muscle -in rename_AUG.aa -out rename_AUG.afa   
+
+#Make phylogenetic tree with RAxML (v8.2.12) using 1000 bootstrap replicates and grapevine PDH as root
+raxmlHPC -T 16 -o VvDIRa -f a -m PROTGAMMAAUTO -p 12345 -x 12345 -# 1000 -s rename_AUG.afa -n rename_AUG
+
+#Make phylogenetic tree in R using ggtree
+tree <- read.tree("RAxML_bipartitions.rename_AUG")
+groupInfo <- split(tree$tip.label, gsub("[A-Z][A-Z][A-Z].+$", "", tree$tip.label))
+names(groupInfo) <- c("Cicer arietinum", "Cajanus cajan", "Glycine max", "Lupinus albus", "Lotus japonicus", "Medicago truncatula", "Phaseolus lunatus", "Pisum sativum", "Phaseolus vulgaris", "Vigna angularis", "Vigna radiata", "Vigna unguiculata", "Vitis vinifera")
+tree <- groupOTU(tree, groupInfo)
+mycol <- kelly()[10:(length(groupInfo)+9)]
+names(mycol) <- names(groupInfo)
+tree_rename_AUG <- ggtree(tree, layout='rectangular', size = 0.8) + 
+  xlim(0, 1.25) +
+  geom_nodelab(size=2.2, color = "grey30", nudge_x=-0.026, nudge_y=0.38) +
+  geom_tiplab(aes(color=group,), size=3, align=T, show.legend=FALSE, offset = 0.01) +
+  geom_tippoint(aes(color=group,), size=2.8, shape=16) +
+  scale_color_manual(values=mycol, name="") +
+  theme_tree2(legend.position = c(0.26,0.91), legend.background = element_rect(), legend.text = element_text(face = "italic"), legend.key.size=unit(0.5, 'cm')) +
+  guides(color=guide_legend(ncol=2, bycol=T))
+flip(tree_rename_AUG, 54, 63)
