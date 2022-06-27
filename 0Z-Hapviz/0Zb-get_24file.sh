@@ -23,7 +23,7 @@ Rscript get2file_${3}.R
 awk '{print $1}' ${1} | tail -n +2 > ${3}_Mreps_sites.txt
 sed -i 's/Gm//' ${3}_Mreps_sites.txt
 ##need to make sure the SNP IDs have the same naming convention (e.g. Gm16_... vs 16_...)
-/group/pawsey0149/jmarsh1/packages/PLINK/plink --vcf ${2} --show-tags ${3}_Mreps_sites.txt --tag-r2 0.9 --list-all --out ${3}_prepruned
+plink --vcf ${2} --show-tags ${3}_Mreps_sites.txt --tag-r2 0.9 --list-all --out ${3}_prepruned
 
 echo -e "library(tidyverse)
 library(data.table)
