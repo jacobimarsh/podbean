@@ -79,4 +79,4 @@ sed -i 's/lotja:AUGUSTUS:norm:other:1502-2071:lotja.MG20.gnm3.Lj4:39623588-39627
 sed -i 's/lotja:AUGUSTUS:norm:other:1502-2047:lotja.MG20.gnm3.Lj4:8946504-8950204/lotja35/' OF_input_AUG.aa
 sed -i 's/lotja:AUGUSTUS:norm:.:1502-2047:lotja.MG20.gnm3.Lj4:39629947-39633647/lotja34/' OF_input_AUG.aa
 
-
+orthofinder -f OF_input_AUG.aa
