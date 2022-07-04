@@ -4,7 +4,7 @@ conda install scipy
 
 plink --vcf impu_bial_16_SNP_id_filt_all.vcf --allow-extra-chr --out impu_bial_16_SNP_id_filt_all.vcf
 
-/group/pawsey0149/jmarsh1/packages/minconda3/bin/conda activate py2
+conda activate py2
 
 python2 fastStructure/structure.py -K 1 --prior=simple --input=haploupe/impu_bial_16_SNP_id_filt_all.vcf --output=haploupe/test/testoutput_simple
 python2 fastStructure/structure.py -K 2 --prior=simple --input=haploupe/impu_bial_16_SNP_id_filt_all.vcf --output=haploupe/test/testoutput_simple
