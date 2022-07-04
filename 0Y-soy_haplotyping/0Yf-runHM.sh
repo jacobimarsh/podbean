@@ -132,11 +132,11 @@ library(HaplotypeMiner)
 library(ggplot2)
 
 paramsHM${NAME} <- haplo_params(
-   input_file = '/scratch/pawsey0149/jmarsh1/podshatter/glyma/haploupe/input/nohet_fin_impu_bial_16_SNP_id_filt_all.hmp.txt',
-   gene_db_file = '/scratch/pawsey0149/jmarsh1/podshatter/glyma/haploupe/input/my_gene_db.txt',
-   chr_db_file = '/scratch/pawsey0149/jmarsh1/podshatter/glyma/haploupe/input/chr16_size.txt',
-   structure_file = '/scratch/pawsey0149/jmarsh1/podshatter/glyma/haploupe/input/impu_bial_16_SNP_id_filt_all.vcf.10.meanQ_HMformatted.txt',
-   kinship_file = '/scratch/pawsey0149/jmarsh1/podshatter/glyma/haploupe/input/nohet_fin_impu_bial_16_SNP_id_filt_all_kinship_HMformatted.txt',
+   input_file = 'haploupe/input/nohet_fin_impu_bial_16_SNP_id_filt_all.hmp.txt',
+   gene_db_file = 'haploupe/input/my_gene_db.txt',
+   chr_db_file = 'haploupe/input/chr16_size.txt',
+   structure_file = 'haploupe/input/impu_bial_16_SNP_id_filt_all.vcf.10.meanQ_HMformatted.txt',
+   kinship_file = 'haploupe/input/nohet_fin_impu_bial_16_SNP_id_filt_all_kinship_HMformatted.txt',
    gene_name = '${NAME}',
    R2_measure = 'r2vs',
    cluster_R2 = 'r2',
@@ -192,7 +192,7 @@ ld_plot(snp_data = HM${NAME}_haplotypes\$Clustered_markers,
 distance_plot(snp_data = HM${NAME}_haplotypes\$Filtered_markers,
               center_pos = HM${NAME}_haplotypes\$Parameters\$Gene_center,
               r2_threshold3 = HM${NAME}_haplotypes\$Parameters\$Marker_independence_threshold)" > HM${NAME}_CT${CT}_MIT${MIT}.r
-scp /scratch/pawsey0149/jmarsh1/podshatter/glyma/haploupe/input/template.slm HM${NAME}_CT${CT}_MIT${MIT}.slm
+scp haploupe/input/template.slm HM${NAME}_CT${CT}_MIT${MIT}.slm
 sed -i "s/genename/HM${NAME}_CT${CT}_MIT${MIT}/g" HM${NAME}_CT${CT}_MIT${MIT}.slm
 sbatch HM${NAME}_CT${CT}_MIT${MIT}.slm
 
@@ -283,7 +283,7 @@ Rscript HMGmPDH1_MIT0.9_CT0.6.r
 Rscript HMGmPDH1_MIT0.9_CT0.5.r
 Rscript HMGmPDH1_MIT0.9_CT0.9.r
 
-cd /scratch/pawsey0149/jmarsh1/podshatter/tagphenobox
+cd tagphenobox
 get_24file.sh ../glyma/haploupe/analysis_output/HMGmPDH1_MIT0.8_CT0.7/Haplotypes.hmp.txt ../glyma/snp_calling/16_SNP_id_filt_bial_all.vcf HMGmPDH1_MIT0.8_CT0.7
 get_24file.sh ../glyma/haploupe/analysis_output/HMGmPDH1_MIT0.8_CT0.6/Haplotypes.hmp.txt ../glyma/snp_calling/16_SNP_id_filt_bial_all.vcf HMGmPDH1_MIT0.8_CT0.6
 get_24file.sh ../glyma/haploupe/analysis_output/HMGmPDH1_MIT0.8_CT0.5/Haplotypes.hmp.txt ../glyma/snp_calling/16_SNP_id_filt_bial_all.vcf HMGmPDH1_MIT0.8_CT0.5
@@ -352,7 +352,7 @@ Rscript HMGmSCL15_MIT0.9_CT0.6.r
 Rscript HMGmSCL15_MIT0.9_CT0.5.r
 Rscript HMGmSCL15_MIT0.9_CT0.9.r
 
-cd /scratch/pawsey0149/jmarsh1/podshatter/tagphenobox
+cd tagphenobox
 get_24file.sh ../glyma/haploupe/analysis_output/HMGmSCL15_MIT0.8_CT0.7/Haplotypes.hmp.txt ../glyma/snp_calling/16_SNP_id_filt_bial_all.vcf HMGmSCL15_MIT0.8_CT0.7
 get_24file.sh ../glyma/haploupe/analysis_output/HMGmSCL15_MIT0.8_CT0.6/Haplotypes.hmp.txt ../glyma/snp_calling/16_SNP_id_filt_bial_all.vcf HMGmSCL15_MIT0.8_CT0.6
 get_24file.sh ../glyma/haploupe/analysis_output/HMGmSCL15_MIT0.8_CT0.5/Haplotypes.hmp.txt ../glyma/snp_calling/16_SNP_id_filt_bial_all.vcf HMGmSCL15_MIT0.8_CT0.5
