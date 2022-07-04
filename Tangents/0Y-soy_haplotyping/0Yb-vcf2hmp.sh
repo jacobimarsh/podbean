@@ -1,7 +1,7 @@
 sed 's/0\/1/.\/./g' impu_bial_16_SNP_id_filt_all.vcf >> nohet_impu_bial_16_SNP_id_filt_all.vcf
 sed -i 's/1\/0/.\/./g' nohet_impu_bial_16_SNP_id_filt_all.vcf
 module load java
-java -jar /group/pawsey0149/jmarsh1/packages/beagle.18May20.d20.jar gt=nohet_impu_bial_16_SNP_id_filt_all.vcf nthreads=22 out=nohet_prefin_impu_bial_16_SNP_id_filt_all
+java -jar beagle.18May20.d20.jar gt=nohet_impu_bial_16_SNP_id_filt_all.vcf nthreads=22 out=nohet_prefin_impu_bial_16_SNP_id_filt_all
 bgzip -d nohet_prefin_impu_bial_16_SNP_id_filt_all.vcf.gz
 tassel5 -Xmx20G -vcf nohet_prefin_impu_bial_16_SNP_id_filt_all.vcf -export nohet_prefin_impu_bial_16_SNP_id_filt_all -exportType HapmapDiploid
 sed -i 's/#//g' nohet_prefin_impu_bial_16_SNP_id_filt_all.hmp.txt
@@ -16,7 +16,7 @@ sed 's/0_//g' indep500_1_0.9_impu_bial_16_SNP_id_filt_all.vcf > indep500_1_0.9_i
 sed 's/0\/1/.\/./g' indep500_1_0.9_impu_bial_16_SNP_id_filt_all.vcf >> indep500_1_0.9_nohet_impu_bial_16_SNP_id_filt_all.vcf
 sed -i 's/1\/0/.\/./g' indep500_1_0.9_nohet_impu_bial_16_SNP_id_filt_all.vcf
 module load java
-java -jar /group/pawsey0149/jmarsh1/packages/beagle.18May20.d20.jar gt=indep500_1_0.9_nohet_impu_bial_16_SNP_id_filt_all.vcf nthreads=22 out=indep500_1_0.9_nohet_prefin_impu_bial_16_SNP_id_filt_all
+java -jar beagle.18May20.d20.jar gt=indep500_1_0.9_nohet_impu_bial_16_SNP_id_filt_all.vcf nthreads=22 out=indep500_1_0.9_nohet_prefin_impu_bial_16_SNP_id_filt_all
 bgzip -d indep500_1_0.9_nohet_prefin_impu_bial_16_SNP_id_filt_all.vcf.gz
 tassel5 -Xmx20G -vcf indep500_1_0.9_nohet_prefin_impu_bial_16_SNP_id_filt_all.vcf -export indep500_1_0.9_nohet_prefin_impu_bial_16_SNP_id_filt_all -exportType HapmapDiploid
 sed -i 's/#//g' indep500_1_0.9_nohet_prefin_impu_bial_16_SNP_id_filt_all.hmp.txt
@@ -30,7 +30,7 @@ sed -i 's/0_//g' indep1000_5_0.8_impu_bial_16_SNP_id_filt_all.vcf
 sed 's/0\/1/.\/./g' indep1000_5_0.8_impu_bial_16_SNP_id_filt_all.vcf > indep1000_5_0.8_nohet_impu_bial_16_SNP_id_filt_all.vcf
 sed -i 's/1\/0/.\/./g' indep1000_5_0.8_nohet_impu_bial_16_SNP_id_filt_all.vcf
 module load java
-java -jar /group/pawsey0149/jmarsh1/packages/beagle.18May20.d20.jar gt=indep1000_5_0.8_nohet_impu_bial_16_SNP_id_filt_all.vcf nthreads=22 out=indep1000_5_0.8_nohet_prefin_impu_bial_16_SNP_id_filt_all
+java -jar beagle.18May20.d20.jar gt=indep1000_5_0.8_nohet_impu_bial_16_SNP_id_filt_all.vcf nthreads=22 out=indep1000_5_0.8_nohet_prefin_impu_bial_16_SNP_id_filt_all
 bgzip -d indep1000_5_0.8_nohet_prefin_impu_bial_16_SNP_id_filt_all.vcf.gz
 tassel5 -Xmx20G -vcf indep1000_5_0.8_nohet_prefin_impu_bial_16_SNP_id_filt_all.vcf -export indep1000_5_0.8_nohet_prefin_impu_bial_16_SNP_id_filt_all -exportType HapmapDiploid
 sed -i 's/#//g' indep1000_5_0.8_nohet_prefin_impu_bial_16_SNP_id_filt_all.hmp.txt
