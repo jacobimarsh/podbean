@@ -12,3 +12,8 @@ python3 gff_to_genbank.py glyma_region.gff3 Gm16.fna
 conda activate clinker
 unset PYTHONPATH
 clinker -ufo -j 15 -p pdh1_added -f whole_chr_gb/*.gb
+
+
+# for DIR26/DIR27
+cd pod/clinkerbox/clinker_run/gff3_run
+clinker -ufo -j 15 -p qfqf.html Vr07.gff3 Va.gff3 Vu03.gff3 Pv02.gff3 Pl02.gff3 Gm08.gff3 Cc10.gff3 Ca6.gff3
